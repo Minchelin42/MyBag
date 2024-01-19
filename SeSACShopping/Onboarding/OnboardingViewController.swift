@@ -20,15 +20,7 @@ class OnboardingViewController: UIViewController {
         logoImage.image = UIImage(named: "sesacShopping")
         onboardingImage.image = UIImage(named: "onboarding")
         
-        startButton.setTitle("시작하기", for: .normal)
-        startButton.setTitleColor(.textColor, for: .normal)
-        startButton.titleLabel?.font = .boldSystemFont(ofSize: 17)
-        
-        startButton.backgroundColor = .pointColor
-        startButton.clipsToBounds = true
-        startButton.layer.cornerRadius = 10
-        
-
+        startButton.pointButtonStyle(title: "시작하기")
 
     }
 

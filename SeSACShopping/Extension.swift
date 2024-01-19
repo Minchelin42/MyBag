@@ -12,3 +12,15 @@ extension UIColor {
     static let backgroudnColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1)
     static let textColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1)
 }
+
+extension UIButton {
+    func pointButtonStyle(title: String) {
+        self.setTitle(title, for: .normal)
+        self.setTitleColor(.textColor, for: .normal)
+        self.titleLabel?.font = .boldSystemFont(ofSize: 17)
+        
+        self.backgroundColor = .pointColor
+        self.clipsToBounds = true
+        self.layer.cornerRadius = 10
+    }
+}
