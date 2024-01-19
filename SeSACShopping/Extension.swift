@@ -14,6 +14,9 @@ extension UIColor {
 }
 
 extension UIButton {
+    
+    static var isSelected: Bool = false
+    
     func pointButtonStyle(title: String) {
         self.setTitle(title, for: .normal)
         self.setTitleColor(.textColor, for: .normal)
@@ -22,5 +25,28 @@ extension UIButton {
         self.backgroundColor = .pointColor
         self.clipsToBounds = true
         self.layer.cornerRadius = 10
+    }
+    
+    func profileButtonStyle(image: String, isSelected: Bool){
+        self.setImage(UIImage(named: image), for: .normal)
+        self.clipsToBounds = true
+        self.layer.cornerRadius = self.frame.width / 2
+        if isSelected {
+            self.layer.borderWidth = 5
+            self.layer.borderColor = UIColor.pointColor.cgColor
+        } else {
+            self.layer.borderColor = UIColor.clear.cgColor
+        }
+    }
+    
+}
+
+extension UIImageView {
+    func profileImageStyle(image: String, isSelected: Bool){
+        self.image = UIImage(named: image)
+        self.clipsToBounds = true
+        self.layer.cornerRadius = self.frame.width / 2
+        self.layer.borderWidth = 5
+        self.layer.borderColor = UIColor.pointColor.cgColor
     }
 }

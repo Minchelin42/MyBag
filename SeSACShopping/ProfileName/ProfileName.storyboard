@@ -17,12 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile1" translatesAutoresizingMaskIntoConstraints="NO" id="OXd-yx-blH">
-                                <rect key="frame" x="140" y="99" width="113" height="113"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="OXd-yx-blH" secondAttribute="height" id="fuY-wW-u4J"/>
-                                </constraints>
-                            </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dYQ-D6-POm">
                                 <rect key="frame" x="20" y="272" width="353" height="45"/>
                                 <constraints>
@@ -44,6 +38,17 @@
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aqj-Z8-IBZ">
+                                <rect key="frame" x="140" y="99" width="113" height="113"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Aqj-Z8-IBZ" secondAttribute="height" id="1hZ-9e-wud"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="profileImageTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="AFP-Hc-IoP"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="WmB-bB-87M">
                                 <rect key="frame" x="220" y="174" width="40" height="40"/>
@@ -67,15 +72,15 @@
                             <constraint firstItem="WmB-bB-87M" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="220" id="7ks-cO-A4I"/>
                             <constraint firstItem="dYQ-D6-POm" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="B1c-Ik-fyD"/>
                             <constraint firstItem="zgH-VN-uOX" firstAttribute="top" secondItem="dYQ-D6-POm" secondAttribute="bottom" id="DjL-OJ-FTv"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="OXd-yx-blH" secondAttribute="trailing" constant="140" id="FtD-kd-2H7"/>
                             <constraint firstItem="WmB-bB-87M" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="115" id="Igy-qR-1Be"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="dYQ-D6-POm" secondAttribute="trailing" constant="20" id="R4n-8d-nEz"/>
-                            <constraint firstItem="OXd-yx-blH" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="140" id="VpE-7H-AEv"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Aqj-Z8-IBZ" secondAttribute="trailing" constant="140" id="Xhd-Cz-3sf"/>
                             <constraint firstItem="wza-Vd-6YN" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="aRS-by-DAj"/>
-                            <constraint firstItem="OXd-yx-blH" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="40" id="bHw-5Z-HWK"/>
                             <constraint firstItem="voJ-Qv-O6N" firstAttribute="top" secondItem="dYQ-D6-POm" secondAttribute="bottom" constant="10" id="bWx-vp-9GF"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="zgH-VN-uOX" secondAttribute="trailing" constant="20" id="cno-ca-fHc"/>
-                            <constraint firstItem="dYQ-D6-POm" firstAttribute="top" secondItem="OXd-yx-blH" secondAttribute="bottom" constant="60" id="dWc-ei-6sn"/>
+                            <constraint firstItem="Aqj-Z8-IBZ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="140" id="dxT-d9-7PG"/>
+                            <constraint firstItem="dYQ-D6-POm" firstAttribute="top" secondItem="Aqj-Z8-IBZ" secondAttribute="bottom" constant="60" id="kSx-8d-Cqv"/>
+                            <constraint firstItem="Aqj-Z8-IBZ" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="40" id="qbC-oH-9lX"/>
                             <constraint firstItem="zgH-VN-uOX" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="rJ3-WJ-pPr"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="wza-Vd-6YN" secondAttribute="trailing" constant="20" id="tuS-f6-toN"/>
                             <constraint firstItem="wza-Vd-6YN" firstAttribute="top" secondItem="voJ-Qv-O6N" secondAttribute="bottom" constant="25" id="vs2-rw-QV4"/>
@@ -87,7 +92,7 @@
                         <outlet property="checkLabel" destination="voJ-Qv-O6N" id="7J3-Zh-W25"/>
                         <outlet property="completeButton" destination="wza-Vd-6YN" id="sWV-GT-EU7"/>
                         <outlet property="inputTextField" destination="dYQ-D6-POm" id="hds-8v-pzV"/>
-                        <outlet property="profileImage" destination="OXd-yx-blH" id="SbD-qF-QnU"/>
+                        <outlet property="profileButton" destination="Aqj-Z8-IBZ" id="wI9-K3-nI4"/>
                         <outlet property="underLine" destination="zgH-VN-uOX" id="JR4-uc-acD"/>
                     </connections>
                 </viewController>
@@ -98,7 +103,6 @@
     </scenes>
     <resources>
         <image name="camera" width="24" height="24"/>
-        <image name="profile1" width="150" height="150"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

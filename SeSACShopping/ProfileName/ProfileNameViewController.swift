@@ -10,7 +10,7 @@ import UIKit
 class ProfileNameViewController: UIViewController {
 
     
-    @IBOutlet var profileImage: UIImageView!
+    @IBOutlet var profileButton: UIButton!
     @IBOutlet var cameraImage: UIImageView!
 
     @IBOutlet var inputTextField: UITextField!
@@ -19,18 +19,17 @@ class ProfileNameViewController: UIViewController {
 
     @IBOutlet var completeButton: UIButton!
     
-    let image = "profile\(Int.random(in: 1...14))"
+    let randomNum = Int.random(in: 1...14)
     let message = "사용할 수 있는 닉네임이에요"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let image = "profile\(randomNum)"
+        
         view.backgroundColor = .backgroudnColor
 
-        profileImage.image = UIImage(named: image)
-        profileImage.layer.cornerRadius = profileImage.frame.width / 2
-        profileImage.layer.borderWidth = 5
-        profileImage.layer.borderColor = UIColor.pointColor.cgColor
+        profileButton.profileButtonStyle(image: image, isSelected: true)
         cameraImage.image = UIImage(named: "camera")
         
         inputTextField.backgroundColor = .backgroudnColor
@@ -48,5 +47,9 @@ class ProfileNameViewController: UIViewController {
         completeButton.pointButtonStyle(title: "완료")
 
     }
-
+    
+    // MARK: - 프로필 이미지 클릭 시 이미지 변경 화면으로 이동, 선택된 이미지 정보 넘기기
+    @IBAction func profileImageTapped(_ sender: UIButton) {
+    }
+    
 }
