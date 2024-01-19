@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Profile Name View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="ProfileNameViewController" id="Y6W-OH-hqX" customClass="ProfileNameViewController" customModule="SeSACShopping" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile1" translatesAutoresizingMaskIntoConstraints="NO" id="OXd-yx-blH">
+                                <rect key="frame" x="125" y="99" width="143" height="143"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="OXd-yx-blH" secondAttribute="height" id="fuY-wW-u4J"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="닉네임을 입력해주세요 :)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dYQ-D6-POm">
+                                <rect key="frame" x="20" y="302" width="353" height="34"/>
+                                <nil key="textColor"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="닉네임에 @ 는 포함할 수 없어요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="voJ-Qv-O6N">
+                                <rect key="frame" x="25" y="346" width="156.33333333333334" height="14.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" systemColor="tableCellBlueTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wza-Vd-6YN">
+                                <rect key="frame" x="20" y="385.33333333333331" width="353" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ohm-Ac-QWM"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="WmB-bB-87M">
+                                <rect key="frame" x="230" y="189" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="SIm-7z-W42"/>
+                                    <constraint firstAttribute="width" constant="40" id="ccJ-fI-ttA"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="voJ-Qv-O6N" secondAttribute="trailing" constant="20" id="1pv-Sy-Q7Y"/>
+                            <constraint firstItem="WmB-bB-87M" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="230" id="7ks-cO-A4I"/>
+                            <constraint firstItem="dYQ-D6-POm" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="B1c-Ik-fyD"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="OXd-yx-blH" secondAttribute="trailing" constant="125" id="FtD-kd-2H7"/>
+                            <constraint firstItem="WmB-bB-87M" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="130" id="Igy-qR-1Be"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="dYQ-D6-POm" secondAttribute="trailing" constant="20" id="R4n-8d-nEz"/>
+                            <constraint firstItem="OXd-yx-blH" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="125" id="VpE-7H-AEv"/>
+                            <constraint firstItem="wza-Vd-6YN" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="aRS-by-DAj"/>
+                            <constraint firstItem="OXd-yx-blH" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="40" id="bHw-5Z-HWK"/>
+                            <constraint firstItem="voJ-Qv-O6N" firstAttribute="top" secondItem="dYQ-D6-POm" secondAttribute="bottom" constant="10" id="bWx-vp-9GF"/>
+                            <constraint firstItem="dYQ-D6-POm" firstAttribute="top" secondItem="OXd-yx-blH" secondAttribute="bottom" constant="60" id="dWc-ei-6sn"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="wza-Vd-6YN" secondAttribute="trailing" constant="20" id="tuS-f6-toN"/>
+                            <constraint firstItem="wza-Vd-6YN" firstAttribute="top" secondItem="voJ-Qv-O6N" secondAttribute="bottom" constant="25" id="vs2-rw-QV4"/>
+                            <constraint firstItem="voJ-Qv-O6N" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="25" id="x1g-uu-fIu"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="125.95419847328243" y="-2.1126760563380285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="camera" width="24" height="24"/>
+        <image name="profile1" width="150" height="150"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tableCellBlueTextColor">
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
