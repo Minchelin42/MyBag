@@ -17,22 +17,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding" translatesAutoresizingMaskIntoConstraints="NO" id="OoR-cp-PS9">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OoR-cp-PS9">
                                 <rect key="frame" x="50" y="319" width="293" height="293"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="OoR-cp-PS9" secondAttribute="height" id="a7V-zr-z26"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Wl-cj-h9z">
-                                <rect key="frame" x="50" y="728" width="293" height="60"/>
+                                <rect key="frame" x="20" y="733" width="353" height="55"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="S1l-JA-R98"/>
+                                    <constraint firstAttribute="height" constant="55" id="S1l-JA-R98"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Button"/>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sesacShopping" translatesAutoresizingMaskIntoConstraints="NO" id="HFd-xI-GUh">
-                                <rect key="frame" x="50" y="109" width="293" height="150"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HFd-xI-GUh">
+                                <rect key="frame" x="70" y="109" width="253" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="IFf-aB-xt0"/>
                                 </constraints>
@@ -41,17 +41,22 @@
                         <viewLayoutGuide key="safeArea" id="eoQ-73-oTC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="eoQ-73-oTC" firstAttribute="trailing" secondItem="HFd-xI-GUh" secondAttribute="trailing" constant="50" id="F3c-NX-i6H"/>
+                            <constraint firstItem="eoQ-73-oTC" firstAttribute="trailing" secondItem="HFd-xI-GUh" secondAttribute="trailing" constant="70" id="F3c-NX-i6H"/>
                             <constraint firstItem="eoQ-73-oTC" firstAttribute="trailing" secondItem="OoR-cp-PS9" secondAttribute="trailing" constant="50" id="QRB-5L-RRz"/>
-                            <constraint firstItem="3Wl-cj-h9z" firstAttribute="leading" secondItem="eoQ-73-oTC" secondAttribute="leading" constant="50" id="Qme-Vs-6s3"/>
-                            <constraint firstItem="HFd-xI-GUh" firstAttribute="leading" secondItem="eoQ-73-oTC" secondAttribute="leading" constant="50" id="RMg-p4-11H"/>
+                            <constraint firstItem="3Wl-cj-h9z" firstAttribute="leading" secondItem="eoQ-73-oTC" secondAttribute="leading" constant="20" id="Qme-Vs-6s3"/>
+                            <constraint firstItem="HFd-xI-GUh" firstAttribute="leading" secondItem="eoQ-73-oTC" secondAttribute="leading" constant="70" id="RMg-p4-11H"/>
                             <constraint firstItem="eoQ-73-oTC" firstAttribute="bottom" secondItem="3Wl-cj-h9z" secondAttribute="bottom" constant="30" id="TQB-DC-Hdd"/>
                             <constraint firstItem="OoR-cp-PS9" firstAttribute="leading" secondItem="eoQ-73-oTC" secondAttribute="leading" constant="50" id="WLJ-Nr-79W"/>
                             <constraint firstItem="HFd-xI-GUh" firstAttribute="top" secondItem="eoQ-73-oTC" secondAttribute="top" constant="50" id="eSC-q4-0JN"/>
-                            <constraint firstItem="eoQ-73-oTC" firstAttribute="trailing" secondItem="3Wl-cj-h9z" secondAttribute="trailing" constant="50" id="kO8-jE-4lq"/>
+                            <constraint firstItem="eoQ-73-oTC" firstAttribute="trailing" secondItem="3Wl-cj-h9z" secondAttribute="trailing" constant="20" id="kO8-jE-4lq"/>
                             <constraint firstItem="OoR-cp-PS9" firstAttribute="top" secondItem="HFd-xI-GUh" secondAttribute="bottom" constant="60" id="pzv-Eo-vdC"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="logoImage" destination="HFd-xI-GUh" id="VFI-1w-xY2"/>
+                        <outlet property="onboardingImage" destination="OoR-cp-PS9" id="x9r-GJ-iBz"/>
+                        <outlet property="startButton" destination="3Wl-cj-h9z" id="uRb-nB-WYn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="acH-s8-6vC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -59,8 +64,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="onboarding" width="320" height="320"/>
-        <image name="sesacShopping" width="210.33332824707031" height="94"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

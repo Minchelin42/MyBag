@@ -9,21 +9,27 @@ import UIKit
 
 class OnboardingViewController: UIViewController {
 
+    @IBOutlet var logoImage: UIImageView!
+    @IBOutlet var onboardingImage: UIImageView!
+    @IBOutlet var startButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = .backgroudnColor
+        logoImage.image = UIImage(named: "sesacShopping")
+        onboardingImage.image = UIImage(named: "onboarding")
+        
+        startButton.setTitle("시작하기", for: .normal)
+        startButton.setTitleColor(.textColor, for: .normal)
+        startButton.titleLabel?.font = .boldSystemFont(ofSize: 17)
+        
+        startButton.backgroundColor = .pointColor
+        startButton.clipsToBounds = true
+        startButton.layer.cornerRadius = 10
+        
 
-        // Do any additional setup after loading the view.
+
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
