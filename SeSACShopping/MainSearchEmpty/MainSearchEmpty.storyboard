@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="6YF-LT-9E1">
+                            <searchBar contentMode="redraw" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="6YF-LT-9E1">
                                 <rect key="frame" x="0.0" y="59" width="393" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -54,10 +54,15 @@
                             <constraint firstItem="bfN-yO-n7M" firstAttribute="leading" secondItem="STB-vj-TtJ" secondAttribute="leading" constant="40" id="zQc-nd-vs2"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emptyImage" destination="bfN-yO-n7M" id="mtN-Ch-MB0"/>
+                        <outlet property="emptyLabel" destination="dpb-96-Plz" id="w2Y-D9-Qo8"/>
+                        <outlet property="searchBar" destination="6YF-LT-9E1" id="Xpn-ng-nj4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LUJ-rE-X3Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="818" y="-2"/>
+            <point key="canvasLocation" x="1149" y="-96"/>
         </scene>
     </scenes>
     <resources>

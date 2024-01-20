@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,12 +18,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="KyN-Qz-gkD">
-                        <rect key="frame" x="5" y="7.9999999999999964" width="30" height="28.333333333333332"/>
-                        <constraints>
-                            <constraint firstAttribute="width" secondItem="KyN-Qz-gkD" secondAttribute="height" id="64P-0m-ELv"/>
-                        </constraints>
-                    </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a0K-fw-HHo">
                         <rect key="frame" x="291" y="10" width="24" height="24"/>
                         <constraints>
@@ -32,31 +27,59 @@
                         <state key="normal" title="" image="xmark" catalog="system"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="맥북 거치대" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mko-wG-wda">
-                        <rect key="frame" x="45.000000000000007" y="11" width="64.666666666666686" height="22"/>
+                        <rect key="frame" x="51.000000000000007" y="11" width="64.666666666666686" height="22"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RXZ-TF-yGE">
+                        <rect key="frame" x="5" y="5" width="34" height="34"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="KyN-Qz-gkD">
+                                <rect key="frame" x="7" y="7.9999999999999964" width="20" height="18.333333333333336"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="KyN-Qz-gkD" secondAttribute="height" id="64P-0m-ELv"/>
+                                </constraints>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="medium"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="KyN-Qz-gkD" firstAttribute="leading" secondItem="RXZ-TF-yGE" secondAttribute="leading" constant="7" id="3VV-9D-8tr"/>
+                            <constraint firstAttribute="bottom" secondItem="KyN-Qz-gkD" secondAttribute="bottom" constant="7" id="YIx-Dp-v74"/>
+                            <constraint firstAttribute="trailing" secondItem="KyN-Qz-gkD" secondAttribute="trailing" constant="7" id="aha-M0-ssy"/>
+                            <constraint firstItem="KyN-Qz-gkD" firstAttribute="top" secondItem="RXZ-TF-yGE" secondAttribute="top" constant="7" id="bFj-Q4-y4M"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="KyN-Qz-gkD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="2nW-6r-d4f"/>
                     <constraint firstAttribute="bottom" secondItem="Mko-wG-wda" secondAttribute="bottom" constant="11" id="DwF-kL-OYO"/>
                     <constraint firstAttribute="trailing" secondItem="a0K-fw-HHo" secondAttribute="trailing" constant="5" id="Mtq-xT-1SX"/>
                     <constraint firstItem="a0K-fw-HHo" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="NY8-9m-ZC6"/>
                     <constraint firstItem="a0K-fw-HHo" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Mko-wG-wda" secondAttribute="trailing" constant="10" id="P29-Da-0dw"/>
-                    <constraint firstItem="KyN-Qz-gkD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="Q6q-i9-XnJ"/>
-                    <constraint firstAttribute="bottom" secondItem="KyN-Qz-gkD" secondAttribute="bottom" constant="7" id="VJ8-6p-gOB"/>
+                    <constraint firstItem="Mko-wG-wda" firstAttribute="leading" secondItem="RXZ-TF-yGE" secondAttribute="trailing" constant="12" id="TVb-9P-Piz"/>
                     <constraint firstAttribute="bottom" secondItem="a0K-fw-HHo" secondAttribute="bottom" constant="10" id="aal-Q8-IAu"/>
                     <constraint firstItem="Mko-wG-wda" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="eLh-KI-NeV"/>
-                    <constraint firstItem="Mko-wG-wda" firstAttribute="leading" secondItem="KyN-Qz-gkD" secondAttribute="trailing" constant="10" id="vcR-iu-cIn"/>
+                    <constraint firstAttribute="bottom" secondItem="RXZ-TF-yGE" secondAttribute="bottom" constant="5" id="g2e-E9-gHq"/>
+                    <constraint firstItem="RXZ-TF-yGE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="nZm-Xy-1kc"/>
+                    <constraint firstItem="RXZ-TF-yGE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="oci-23-ybP"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="circleView" destination="RXZ-TF-yGE" id="xI5-kc-DmW"/>
+                <outlet property="deleteButton" destination="a0K-fw-HHo" id="wfD-Ww-upV"/>
+                <outlet property="leftImage" destination="KyN-Qz-gkD" id="bls-dS-m7N"/>
+                <outlet property="searchLogLabel" destination="Mko-wG-wda" id="3c3-Lq-kM2"/>
+            </connections>
             <point key="canvasLocation" x="103.81679389312977" y="19.718309859154932"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

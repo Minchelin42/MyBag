@@ -11,6 +11,7 @@ extension UIColor {
     static let pointColor = UIColor(red: 0.282, green: 0.863, blue: 0.573, alpha: 1)
     static let backgroudnColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1)
     static let textColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1)
+    static let darkGrayColor = UIColor(red: 0.11, green: 0.11, blue: 0.123, alpha: 1)
 }
 
 extension UIButton {
@@ -50,3 +51,39 @@ extension UIImageView {
         self.layer.borderColor = UIColor.pointColor.cgColor
     }
 }
+
+extension UISearchBar {
+    func blackSearchBarStyle() {
+        self.barTintColor = .backgroudnColor
+        self.searchTextField.textColor = .textColor
+        self.searchTextField.backgroundColor = .darkGrayColor
+        self.searchTextField.attributedPlaceholder = NSAttributedString(string: "브랜드, 상품, 프로필, 태그 등", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
+    }
+}
+
+protocol ViewProtocol {
+    func configureView()
+}
+
+protocol ReusableProtocol {
+    static var identifier: String { get }
+}
+
+extension UITableViewCell {
+    static var identifier: String {
+        return String(describing: self)
+    }
+}
+
+extension UICollectionViewCell {
+    static var identifier: String {
+        return String(describing: self)
+    }
+}
+
+extension UIViewController: ReusableProtocol {
+    static var identifier: String {
+        return String(describing: self)
+    }
+}
+

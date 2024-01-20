@@ -37,6 +37,9 @@
                                         <rect key="frame" x="314" y="10" width="69" height="20"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="모두 지우기"/>
+                                        <connections>
+                                            <action selector="listClearButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="aCA-0R-u85"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -70,6 +73,13 @@
                             <constraint firstItem="SLQ-3o-4OY" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="wTc-un-mIB"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="leftLabel" destination="mU2-WW-D5Y" id="xcp-pk-hVe"/>
+                        <outlet property="listClearButton" destination="SmO-t2-qWT" id="Sie-36-yUa"/>
+                        <outlet property="listTableView" destination="SLQ-3o-4OY" id="laA-qB-7Kk"/>
+                        <outlet property="searchBar" destination="jzm-aZ-HPS" id="75d-co-3n4"/>
+                        <outlet property="searchListTopView" destination="KGh-uI-gmo" id="vdB-tf-GBN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
