@@ -6,24 +6,24 @@
 //
 
 import UIKit
+import WebKit
 
 class SearchDetailViewController: UIViewController {
 
+    @IBOutlet var resultView: WKWebView!
+    
+    let urlString = "http://www.naver.com"
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let url = URL(string: urlString) {
+            
+            let request = URLRequest(url: url)
+            
+            resultView.load(request)
+        }
 
-        // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

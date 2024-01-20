@@ -35,6 +35,9 @@
                             <constraint firstItem="21Z-iT-BAe" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="djv-Jk-GLa"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="resultView" destination="21Z-iT-BAe" id="DMg-qd-mf8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
