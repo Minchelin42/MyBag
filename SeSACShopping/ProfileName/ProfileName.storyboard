@@ -24,6 +24,10 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="inputFinish:" destination="Y6W-OH-hqX" eventType="editingDidEndOnExit" id="InJ-oo-PBE"/>
+                                    <action selector="isEditing:" destination="Y6W-OH-hqX" eventType="editingChanged" id="K6C-eN-MTe"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="닉네임에 @ 는 포함할 수 없어요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="voJ-Qv-O6N">
                                 <rect key="frame" x="25" y="327" width="156.33333333333334" height="14.333333333333314"/>

@@ -19,6 +19,9 @@ class ProfileImageViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .backgroudnColor
         
+        navigationItem.title = "프로필 설정"
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        
         selectImage.profileImageStyle(image: "profile\(selectIndex + 1)", isSelected: true)
         
         for index in 0...imageList.count - 1 {
@@ -33,8 +36,17 @@ class ProfileImageViewController: UIViewController {
             }
         }
 
+        let button = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .plain, target: self, action: #selector(leftBarButtonItemClicked))
+        button.tintColor = .white
+        navigationItem.leftBarButtonItem = button
     }
 
+    @objc func leftBarButtonItemClicked() {
+        print(#function)
+
+        navigationController?.popViewController(animated: true)
+    }
+    
     // MARK: - 바뀐 index값을 이전 view로 데이터 전달 필요
     @IBAction func imageTapped(_ sender: UIButton) {
 
@@ -48,6 +60,7 @@ class ProfileImageViewController: UIViewController {
         imageList[index].profileButtonStyle(image: "profile\(index + 1)", isSelected: sender.isSelected)
         
         selectIndex = index
+        UserDefaultManager.shared.profileIndex = selectIndex
         
         selectImage.profileImageStyle(image: "profile\(selectIndex + 1)", isSelected: true)
 

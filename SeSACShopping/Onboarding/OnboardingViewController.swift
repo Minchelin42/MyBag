@@ -24,4 +24,13 @@ class OnboardingViewController: UIViewController {
 
     }
 
+    @IBAction func startButtonTapped(_ sender: UIButton) {
+        print(#function)
+        
+        let sb = UIStoryboard(name: "ProfileName", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: ProfileNameViewController.identifier) as! ProfileNameViewController
+        navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    
 }

@@ -37,6 +37,9 @@
 		39ADA2292B59857D00F7D28A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 39ADA2282B59857D00F7D28A /* .gitignore */; };
 		39ADA22C2B59876B00F7D28A /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39ADA22B2B59876B00F7D28A /* Onboarding.storyboard */; };
 		39F696752B5ACC560076305A /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F696742B5ACC560076305A /* Extension.swift */; };
+		39F6967C2B5BE6B10076305A /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F6967A2B5BE6B10076305A /* ProfileTableViewCell.swift */; };
+		39F6967D2B5BE6B10076305A /* ProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39F6967B2B5BE6B10076305A /* ProfileTableViewCell.xib */; };
+		39F6967F2B5C07200076305A /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F6967E2B5C07200076305A /* UserDefaultManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +75,9 @@
 		39ADA2282B59857D00F7D28A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		39ADA22B2B59876B00F7D28A /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		39F696742B5ACC560076305A /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		39F6967A2B5BE6B10076305A /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		39F6967B2B5BE6B10076305A /* ProfileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTableViewCell.xib; sourceTree = "<group>"; };
+		39F6967E2B5C07200076305A /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +127,7 @@
 				39ADA21F2B59855900F7D28A /* LaunchScreen.storyboard */,
 				39ADA2222B59855900F7D28A /* Info.plist */,
 				39F696742B5ACC560076305A /* Extension.swift */,
+				39F6967E2B5C07200076305A /* UserDefaultManager.swift */,
 			);
 			path = SeSACShopping;
 			sourceTree = "<group>";
@@ -199,6 +206,8 @@
 				3905F5432B5AA7C800B910DD /* SettingViewController.swift */,
 				3905F54D2B5AB83A00B910DD /* SettingTableViewCell.swift */,
 				3905F54E2B5AB83A00B910DD /* SettingTableViewCell.xib */,
+				39F6967A2B5BE6B10076305A /* ProfileTableViewCell.swift */,
+				39F6967B2B5BE6B10076305A /* ProfileTableViewCell.xib */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -274,6 +283,7 @@
 				3905F5522B5ABA4B00B910DD /* ProfileImage.storyboard in Resources */,
 				3905F52A2B5AA37300B910DD /* ProfileName.storyboard in Resources */,
 				3905F5322B5AA3DF00B910DD /* MainSearch.storyboard in Resources */,
+				39F6967D2B5BE6B10076305A /* ProfileTableViewCell.xib in Resources */,
 				3905F5422B5AA7BB00B910DD /* Setting.storyboard in Resources */,
 				3905F54C2B5AB39B00B910DD /* ResultCollectionViewCell.xib in Resources */,
 			);
@@ -295,11 +305,13 @@
 				39ADA2192B59855800F7D28A /* ViewController.swift in Sources */,
 				3905F5342B5AA3EC00B910DD /* MainSearchViewController.swift in Sources */,
 				39F696752B5ACC560076305A /* Extension.swift in Sources */,
+				39F6967C2B5BE6B10076305A /* ProfileTableViewCell.swift in Sources */,
 				39ADA2152B59855800F7D28A /* AppDelegate.swift in Sources */,
 				3905F5402B5AA79F00B910DD /* SearchDetailViewController.swift in Sources */,
 				39ADA2172B59855800F7D28A /* SceneDelegate.swift in Sources */,
 				3905F5282B5AA35600B910DD /* OnboardingViewController.swift in Sources */,
 				3905F54B2B5AB39B00B910DD /* ResultCollectionViewCell.swift in Sources */,
+				39F6967F2B5C07200076305A /* UserDefaultManager.swift in Sources */,
 				3905F5382B5AA74C00B910DD /* MainSearchEmptyViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

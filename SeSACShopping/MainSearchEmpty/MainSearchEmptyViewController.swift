@@ -13,10 +13,16 @@ class MainSearchEmptyViewController: UIViewController {
     @IBOutlet var emptyImage: UIImageView!
     @IBOutlet var emptyLabel: UILabel!
     
+    let nickName = "떠나고싶은 고래밥"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .backgroudnColor
+        
+        navigationItem.title = "\(nickName)님의 새싹쇼핑"
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+
         
         searchBar.blackSearchBarStyle()
 
