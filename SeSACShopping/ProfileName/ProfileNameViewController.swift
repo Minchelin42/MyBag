@@ -22,6 +22,10 @@ class ProfileNameViewController: UIViewController {
     let symbolList = ["@","#","$","%"]
     let numberList = ["0","1","2","3","4","5","6","7","8","9"]
     
+    var symbol = false
+    var number = false
+    var count = false
+    
     var isPossible = false
 
     override func viewDidLoad() {
@@ -75,8 +79,7 @@ class ProfileNameViewController: UIViewController {
         profileButton.profileButtonStyle(image: image, isSelected: true)
         
     }
-    
-    // MARK: - 프로필 이미지 클릭 시 이미지 변경 화면으로 이동, 선택된 이미지 정보 넘기기
+
     @IBAction func profileImageTapped(_ sender: UIButton) {
         print(#function)
 
@@ -101,30 +104,44 @@ class ProfileNameViewController: UIViewController {
     
     func checkName() {
         
-        var symbol: Bool = false
-        var number: Bool = false
-        var count: Bool = false
+        for index in 0...symbolList.count - 1 {
+            if inputTextField.text!.contains(symbolList[index]) {
+                checkLabel.text = "닉네임에 @,#,$,% 는 포함할 수 없어요"
+                symbol = true
+                break
+            }
+            symbol = false
+        }
         
+        for index in 0...numberList.count - 1 {
+            if inputTextField.text!.contains(numberList[index]) {
+                checkLabel.text = "닉네임에 숫자는 포함할 수 없어요"
+                number = true
+                break
+            }
+            number = false
+        }
+        
+        // 2가지 조건에 모두 다 해당될 경우 마지막 input값에 따라 불가능한 조건 표시
         var lastInput = ""
         
         if !(inputTextField.text!.isEmpty) {
             lastInput = String(inputTextField.text!.last!)
         }
-
+        
         if symbolList.contains(lastInput){
             checkLabel.text = "닉네임에 @,#,$,% 는 포함할 수 없어요"
-            symbol = true
         }
-        
-        
+
         if numberList.contains(lastInput){
             checkLabel.text = "닉네임에 숫자는 포함할 수 없어요"
-            number = true
         }
 
         if inputTextField.text!.count > 10 || inputTextField.text!.count < 2{
             checkLabel.text = "닉네임은 2글자 이상 10글자 미만으로 설정해주세요"
             count = true
+        } else {
+            count = false
         }
         
         if !symbol && !number && !count{
