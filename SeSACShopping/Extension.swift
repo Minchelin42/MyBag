@@ -40,6 +40,25 @@ extension UIButton {
         }
     }
     
+    func optionButtonStyle(title: String, isSelected: Bool){
+        
+        self.layer.borderColor = UIColor.white.cgColor
+        self.layer.borderWidth = 1
+        self.layer.cornerRadius = 10
+        
+        self.setTitle(title, for: .normal)
+        self.titleLabel?.font = .systemFont(ofSize: 14)
+        self.setTitleColor(isSelected ? .black : .white, for: .normal)
+        self.backgroundColor = isSelected ? .white : .black
+    }
+    
+    func heartButtonStyle(isSelected: Bool){
+        self.layer.cornerRadius = self.frame.width / 2
+        self.backgroundColor = .white
+        self.setImage(UIImage(systemName: isSelected ? "suit.heart.fill" : "suit.heart"), for: .normal)
+        self.tintColor = .black
+    }
+    
 }
 
 extension UIImageView {

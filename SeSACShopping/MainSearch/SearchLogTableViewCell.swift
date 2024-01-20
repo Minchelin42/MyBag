@@ -38,9 +38,9 @@ class SearchLogTableViewCell: UITableViewCell {
     
     @objc func selectButtonTapped(sender: UIButton) {
         print(#function)
-        print(deleteButton.tag)
+        print(sender.tag)
         // MARK: - 버튼 작동 확인용 -> list 삭제로 변경
-        deleteButton.tintColor = .white
+        sender.tintColor = .white
     }
 
 }

@@ -18,19 +18,19 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pgZ-XZ-FZm">
-                        <rect key="frame" x="0.0" y="0.0" width="314" height="314"/>
+                        <rect key="frame" x="0.0" y="0.0" width="314" height="285.33333333333331"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="pgZ-XZ-FZm" secondAttribute="height" id="fFh-Fp-Ax0"/>
+                            <constraint firstAttribute="width" secondItem="pgZ-XZ-FZm" secondAttribute="height" multiplier="11:10" id="fFh-Fp-Ax0"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="월드캠핑카" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yM2-GM-FnC">
-                        <rect key="frame" x="10.000000000000004" y="319" width="56.333333333333343" height="15.666666666666686"/>
+                        <rect key="frame" x="10.000000000000004" y="290.33333333333331" width="56.333333333333343" height="15.666666666666686"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="스타리아 2층 캠핑카" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blI-Ji-AaL">
-                        <rect key="frame" x="10" y="339.66666666666669" width="113" height="18"/>
+                        <rect key="frame" x="10" y="311" width="113" height="18"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="18" id="eBW-hA-YxO"/>
                         </constraints>
@@ -39,11 +39,20 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="19,000,000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FLa-ON-qRD">
-                        <rect key="frame" x="10" y="367.66666666666669" width="87" height="19.333333333333314"/>
+                        <rect key="frame" x="10" y="339" width="87" height="19.333333333333314"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="izI-OP-HlL">
+                        <rect key="frame" x="264" y="235.33333333333334" width="40" height="40.000000000000028"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="HQb-TT-YEV"/>
+                            <constraint firstAttribute="height" constant="40" id="OPD-ou-XnQ"/>
+                        </constraints>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" image="suit.heart" catalog="system" title=""/>
+                    </button>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
@@ -58,12 +67,24 @@
                 <constraint firstItem="yM2-GM-FnC" firstAttribute="top" secondItem="pgZ-XZ-FZm" secondAttribute="bottom" constant="5" id="bWe-Aj-7X7"/>
                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="FLa-ON-qRD" secondAttribute="bottom" constant="10" id="crK-V8-dQA"/>
                 <constraint firstItem="blI-Ji-AaL" firstAttribute="top" secondItem="yM2-GM-FnC" secondAttribute="bottom" constant="5" id="jaS-lV-OrG"/>
+                <constraint firstItem="pgZ-XZ-FZm" firstAttribute="trailing" secondItem="izI-OP-HlL" secondAttribute="trailing" constant="10" id="kT4-d2-oDT"/>
                 <constraint firstItem="FLa-ON-qRD" firstAttribute="top" secondItem="blI-Ji-AaL" secondAttribute="bottom" constant="10" id="mxD-zO-E1z"/>
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="FLa-ON-qRD" secondAttribute="trailing" constant="10" id="o13-3Y-HbU"/>
+                <constraint firstItem="pgZ-XZ-FZm" firstAttribute="bottom" secondItem="izI-OP-HlL" secondAttribute="bottom" constant="10" id="v0c-J1-lvM"/>
                 <constraint firstItem="FLa-ON-qRD" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="ycA-dR-6TA"/>
             </constraints>
             <size key="customSize" width="314" height="436"/>
+            <connections>
+                <outlet property="companyLabel" destination="yM2-GM-FnC" id="Txw-9U-P7N"/>
+                <outlet property="heartButton" destination="izI-OP-HlL" id="Uhj-Sw-R8g"/>
+                <outlet property="priceLabel" destination="FLa-ON-qRD" id="i90-ks-Krp"/>
+                <outlet property="productLabel" destination="blI-Ji-AaL" id="6Wl-ui-MgR"/>
+                <outlet property="resultImage" destination="pgZ-XZ-FZm" id="jzi-e8-tb5"/>
+            </connections>
             <point key="canvasLocation" x="303.81679389312978" y="155.63380281690141"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="suit.heart" catalog="system" width="128" height="107"/>
+    </resources>
 </document>

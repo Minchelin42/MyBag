@@ -9,9 +9,40 @@ import UIKit
 
 class ResultCollectionViewCell: UICollectionViewCell {
 
+    
+    @IBOutlet var resultImage: UIImageView!
+
+    @IBOutlet var heartButton: UIButton!
+    
+    @IBOutlet var companyLabel: UILabel!
+    @IBOutlet var productLabel: UILabel!
+    @IBOutlet var priceLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        resultImage.layer.cornerRadius = 15
+        
+        heartButton.heartButtonStyle(isSelected: heartButton.isSelected)
+        
+        companyLabel.textColor = .lightGray
+        companyLabel.font = .systemFont(ofSize: 13, weight: .regular)
+        
+        productLabel.textColor = .textColor
+        productLabel.font = .systemFont(ofSize: 14, weight: .regular)
+        priceLabel.textColor = .textColor
+        priceLabel.font = .systemFont(ofSize: 16, weight: .semibold)
+        
+        heartButton.addTarget(self, action: #selector(heartButtonTapped), for: .touchUpInside)
+
+    }
+    
+    @objc func heartButtonTapped(sender: UIButton) {
+        print(#function)
+        print(sender.tag)
+        
+        sender.tintColor = .pointColor
+
     }
 
 }
