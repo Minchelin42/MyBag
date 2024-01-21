@@ -7,6 +7,16 @@
 
 import UIKit
 
+extension Int {
+    var prettyNumber: String {
+        let formatter = NumberFormatter()
+        formatter.groupingSeparator = ","
+        formatter.numberStyle = .decimal
+        formatter.locale = .init(identifier: "ko")
+        return formatter.string(from: NSNumber(value: self)) ?? ""
+    }
+}
+
 extension UIColor {
     static let pointColor = UIColor(red: 0.282, green: 0.863, blue: 0.573, alpha: 1)
     static let backgroudnColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1)

@@ -21,7 +21,8 @@ class ResultCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        resultImage.layer.cornerRadius = 15
+        resultImage.layer.cornerRadius = 20
+        resultImage.contentMode = .scaleAspectFill
         
         heartButton.heartButtonStyle(isSelected: heartButton.isSelected)
         
@@ -30,6 +31,8 @@ class ResultCollectionViewCell: UICollectionViewCell {
         
         productLabel.textColor = .textColor
         productLabel.font = .systemFont(ofSize: 14, weight: .regular)
+        productLabel.numberOfLines = 2
+        
         priceLabel.textColor = .textColor
         priceLabel.font = .systemFont(ofSize: 16, weight: .semibold)
         

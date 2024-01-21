@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class MainSearchEmptyViewController: UIViewController {
     
@@ -57,18 +58,19 @@ extension MainSearchEmptyViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         print(#function)
         if !searchBar.text!.isEmpty {
+            
             UserDefaultManager.shared.searchItems.append(searchBar.text!)
             print(UserDefaultManager.shared.searchItems)
             
             let sb = UIStoryboard(name: "SearchResult", bundle: nil)
             let vc = sb.instantiateViewController(withIdentifier: "SearchResultViewController") as! SearchResultViewController
             
-            vc.resultNum = 12345
             vc.searchItem = searchBar.text!
+            
             searchBar.text = ""
             view.endEditing(true)
             navigationController?.pushViewController(vc, animated: true)
-            
+
         } else {
 
             let alert = UIAlertController(title: "검색어를 입력해주세요", message: nil, preferredStyle: .alert)

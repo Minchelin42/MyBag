@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Alamofire
+import Kingfisher
 
 class SearchResultViewController: UIViewController {
 
@@ -16,11 +18,14 @@ class SearchResultViewController: UIViewController {
     @IBOutlet var highPriceButton: UIButton!
     @IBOutlet var lowPriceButton: UIButton!
     
+    var sort = "sim"
+    
     @IBOutlet var resultCollectionView: UICollectionView!
     
     // MARK: - API 통신으로 받아오기
-    var resultNum = 0
     var searchItem = ""
+    
+    var list: Result = Result(lastBuildDate: "", total: 0, start: 0, display: 0, items: [])
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,11 +34,10 @@ class SearchResultViewController: UIViewController {
         
         resultTopView.backgroundColor = .clear
         resultCollectionView.backgroundColor = .clear
-        
         navigationItem.title = "\(searchItem)"
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         
-        numberOfResultLabel.text = "\(resultNum)개의 검색 결과"
+        numberOfResultLabel.text = "\(self.list.total.prettyNumber)개의 검색 결과"
         numberOfResultLabel.font = .systemFont(ofSize: 14, weight: .semibold)
         numberOfResultLabel.textColor = .pointColor
 
@@ -49,12 +53,44 @@ class SearchResultViewController: UIViewController {
         button.tintColor = .white
         navigationItem.leftBarButtonItem = button
     }
-    
+
     @objc func leftBarButtonItemClicked() {
         print(#function)
         navigationController?.popViewController(animated: true)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        callRequest(search: searchItem)
+    }
 
+    func callRequest(search: String){
+        //한글일 경우 인코딩 처리
+        let query = search.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        let display = 30
+        
+        let url = "https://openapi.naver.com/v1/search/shop.json?query=\(search)&display=\(display)&sort=\(sort)"
+        
+        let headers: HTTPHeaders = [
+            "X-Naver-Client-Id": APIKey.clientID,
+            "X-Naver-Client-Secret": APIKey.clientSecret
+        ]
+        
+        AF.request(url, method: .get, headers: headers).responseDecodable(of: Result.self) { response in
+            
+            switch response.result {
+            case .success(let success):
+                dump(success)
+                self.list = success
+                self.numberOfResultLabel.text = "\(self.list.total.prettyNumber)개의 검색 결과"
+                self.resultCollectionView.reloadData()
+                
+            case .failure(let failure):
+                print(failure)
+            }
+            
+        }
+        
+    }
 }
 
 extension SearchResultViewController {
@@ -71,21 +107,21 @@ extension SearchResultViewController {
         let spacing: CGFloat = 15
         
         let cellWidth = (UIScreen.main.bounds.width - (spacing * 3)) / 2
-        let cellHeight = cellWidth * 1.4
+        let cellHeight = cellWidth * 1.5
     
         layout.itemSize = CGSize(width: cellWidth, height: cellHeight)
         layout.minimumLineSpacing = spacing
         layout.minimumInteritemSpacing = spacing
         layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
         layout.scrollDirection = .vertical
-        
+    
         resultCollectionView.collectionViewLayout = layout
     }
 }
 
 extension SearchResultViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return list.display
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -93,18 +129,25 @@ extension SearchResultViewController: UICollectionViewDelegate, UICollectionView
         
         cell.backgroundColor = .clear
         
-        cell.resultImage.backgroundColor = .pointColor
+        cell.resultImage.kf.setImage(with: URL(string: list.items[indexPath.row].image))
         
         cell.heartButton.tag = indexPath.row
         
         cell.heartButton.heartButtonStyle(isSelected: cell.heartButton.isSelected)
+
+        cell.companyLabel.text = "\(list.items[indexPath.row].mallName)"
         
-        // MARK: - API로 목록 받아서 바꿔줘야함
-        cell.companyLabel.text = "\(indexPath.row)"
-        cell.productLabel.text = "\(indexPath.row)"
-        cell.priceLabel.text = "\(indexPath.row)"
+        var title = list.items[indexPath.row].title.replacingOccurrences(of: "<b>", with: "")
+        title = title.replacingOccurrences(of: "</b>", with: "")
+        
+        cell.productLabel.text = "\(title)"
+        
+        let price = (Int(list.items[indexPath.row].lprice)?.prettyNumber)!
+
+        cell.priceLabel.text = "\(price) 원"
 
         return cell
+        
     }
 
     

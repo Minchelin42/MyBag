@@ -79,7 +79,7 @@ extension MainSearchViewController {
         let xib = UINib(nibName: SearchLogTableViewCell.identifier, bundle: nil)
         listTableView.register(xib, forCellReuseIdentifier: SearchLogTableViewCell.identifier)
         
-        listTableView.allowsSelection = false
+//        listTableView.allowsSelection = false
     }
 }
 
@@ -93,7 +93,6 @@ extension MainSearchViewController: UISearchBarDelegate {
             let sb = UIStoryboard(name: "SearchResult", bundle: nil)
             let vc = sb.instantiateViewController(withIdentifier: "SearchResultViewController") as! SearchResultViewController
             
-            vc.resultNum = 12345
             vc.searchItem = searchBar.text!
             navigationController?.pushViewController(vc, animated: true)
             
@@ -150,6 +149,18 @@ extension MainSearchViewController: UITableViewDelegate, UITableViewDataSource {
             listTableView.reloadData()
         }
         
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let sb = UIStoryboard(name: "SearchResult", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "SearchResultViewController") as! SearchResultViewController
+        
+        vc.searchItem = searchList[searchList.count - indexPath.row - 1] as! String
+        searchList.remove(at: searchList.count - indexPath.row - 1)
+        searchList.append(vc.searchItem)
+        UserDefaultManager.shared.searchItems = searchList
+
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
