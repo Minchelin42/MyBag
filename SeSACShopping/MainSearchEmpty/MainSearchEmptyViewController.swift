@@ -14,7 +14,7 @@ class MainSearchEmptyViewController: UIViewController {
     @IBOutlet var emptyImage: UIImageView!
     @IBOutlet var emptyLabel: UILabel!
     
-    let nickName = UserDefaultManager.shared.nickName
+    var nickName = UserDefaultManager.shared.nickName
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +38,9 @@ class MainSearchEmptyViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        
+        navigationItem.title = "\(UserDefaultManager.shared.nickName)님의 새싹쇼핑"
+        
         if !UserDefaultManager.shared.searchItems.isEmpty {
             
             let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene

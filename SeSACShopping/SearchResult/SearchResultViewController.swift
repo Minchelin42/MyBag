@@ -76,7 +76,7 @@ class SearchResultViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        callRequest(search: searchItem, sort: sortOption[0])
+        callRequest(search: searchItem, sort: sortOption[nowSortIndex])
     }
     
     func sortOptionButtonDesign() {

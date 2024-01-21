@@ -28,7 +28,10 @@ class OnboardingViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         print(#function)
         
+        UserDefaultManager.shared.profileIndex = Int.random(in: 0...13)
+        UserDefaultManager.shared.nickName = ""
         UserDefaultManager.shared.searchItems.removeAll()
+        UserDefaultManager.shared.likeItems.removeAll()
         UserDefaultManager.shared.newMember = true
 
     }

@@ -96,10 +96,10 @@
             </objects>
             <point key="canvasLocation" x="4883" y="-58"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab Bar Controller-->
         <scene sceneID="KRp-Io-o2N">
             <objects>
-                <tabBarController storyboardIdentifier="mainSearchEmptyTabController" automaticallyAdjustsScrollViewInsets="NO" id="9gn-L8-aw6" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="mainSearchEmptyTabController" automaticallyAdjustsScrollViewInsets="NO" id="9gn-L8-aw6" customClass="MainTabBarController" customModule="SeSACShopping" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="acl-7x-kNR">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -198,10 +198,10 @@
             </objects>
             <point key="canvasLocation" x="11374" y="376"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab Bar Controller-->
         <scene sceneID="Vuv-eR-Cr0">
             <objects>
-                <tabBarController storyboardIdentifier="mainSearchTabController" automaticallyAdjustsScrollViewInsets="NO" id="Vba-Ov-0u0" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="mainSearchTabController" automaticallyAdjustsScrollViewInsets="NO" id="Vba-Ov-0u0" customClass="MainTabBarController" customModule="SeSACShopping" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hlb-kP-79H">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>

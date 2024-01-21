@@ -7,12 +7,18 @@
 
 import UIKit
 
+enum ProfileSettingType {
+    case new
+    case edit
+}
+
 class ProfileNameViewController: UIViewController {
 
-    
     @IBOutlet var profileButton: UIButton!
     @IBOutlet var cameraImage: UIImageView!
 
+    @IBOutlet var profileView: UIView!
+    
     @IBOutlet var inputTextField: UITextField!
     @IBOutlet var underLine: UIView!
     @IBOutlet var checkLabel: UILabel!
@@ -27,16 +33,19 @@ class ProfileNameViewController: UIViewController {
     var count = false
     
     var isPossible = false
+    
+    var type: ProfileSettingType = .new
+    
+    let originProfile = UserDefaultManager.shared.profileIndex
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        UserDefaultManager.shared.profileIndex = Int.random(in: 0...13)
-        
-        let image = "profile\(UserDefaultManager.shared.profileIndex + 1)"
+
         view.backgroundColor = .backgroudnColor
+        let image = "profile\(UserDefaultManager.shared.profileIndex + 1)"
+        profileView.backgroundColor = .clear
         
-        navigationItem.title = "프로필 설정"
+        navigationItem.title = type == .new ? "프로필 설정" : "프로필 수정"
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
 
         profileButton.profileButtonStyle(image: image, isSelected: true)
@@ -62,25 +71,40 @@ class ProfileNameViewController: UIViewController {
         let button = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .plain, target: self, action: #selector(leftBarButtonItemClicked))
         button.tintColor = .white
         navigationItem.leftBarButtonItem = button
+        
     }
     
     @objc func completeButtonTapped() {
         print(#function)
         
         if isPossible {
-            let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
-            
-            let sceneDelegate = windowScene?.delegate as? SceneDelegate
-            
-            let sb = UIStoryboard(name: "Main", bundle: nil)
-            let vc = sb.instantiateViewController(withIdentifier: "mainSearchEmptyTabController") as! UITabBarController
+            if type == .new {
+                let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+                
+                let sceneDelegate = windowScene?.delegate as? SceneDelegate
+                
+                let sb = UIStoryboard(name: "Main", bundle: nil)
+                let vc = sb.instantiateViewController(withIdentifier: "mainSearchEmptyTabController") as! UITabBarController
+                
+                sceneDelegate?.window?.rootViewController = vc
+                sceneDelegate?.window?.makeKeyAndVisible()
+                
+                UserDefaultManager.shared.nickName = inputTextField.text!
+                print(UserDefaultManager.shared.nickName)
+                UserDefaultManager.shared.newMember = false
+            } else {
 
-            sceneDelegate?.window?.rootViewController = vc
-            sceneDelegate?.window?.makeKeyAndVisible()
-            
-            UserDefaultManager.shared.nickName = inputTextField.text!
-            print(UserDefaultManager.shared.nickName)
-            UserDefaultManager.shared.newMember = false
+                let alert = UIAlertController(title: "프로필 변경 완료!", message: nil, preferredStyle: .alert)
+
+                let oneButton = UIAlertAction(title: "확인", style: .cancel) { action in
+                    UserDefaultManager.shared.nickName = self.inputTextField.text!
+                    self.navigationController?.popViewController(animated: true)
+                }
+
+                alert.addAction(oneButton)
+ 
+                present(alert, animated: true)
+            }
             
         } else {
 
@@ -97,9 +121,9 @@ class ProfileNameViewController: UIViewController {
 
     @objc func leftBarButtonItemClicked() {
         print(#function)
-        
-        UserDefaultManager.shared.profileIndex = Int.random(in: 0...13)
-        UserDefaultManager.shared.nickName = ""
+        if type == .edit {
+            UserDefaultManager.shared.profileIndex = originProfile
+        }
         navigationController?.popViewController(animated: true)
     }
     
@@ -118,7 +142,9 @@ class ProfileNameViewController: UIViewController {
 
         let sb = UIStoryboard(name: "ProfileImage", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: ProfileImageViewController.identifier) as! ProfileImageViewController
+        
         vc.selectIndex = UserDefaultManager.shared.profileIndex
+        vc.type = type
         navigationController?.pushViewController(vc, animated: true)
 
     }

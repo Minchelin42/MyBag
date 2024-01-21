@@ -44,6 +44,7 @@
 		39F696832B5CF6090076305A /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F696822B5CF6090076305A /* Result.swift */; };
 		39F696862B5CF7CB0076305A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 39F696852B5CF7CB0076305A /* Alamofire */; };
 		39F696892B5D0A4F0076305A /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 39F696882B5D0A4F0076305A /* Kingfisher */; };
+		39F6968B2B5D6D830076305A /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F6968A2B5D6D830076305A /* MainTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +85,7 @@
 		39F6967E2B5C07200076305A /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		39F696802B5CF30D0076305A /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		39F696822B5CF6090076305A /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		39F6968A2B5D6D830076305A /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 		39ADA2132B59855800F7D28A /* SeSACShopping */ = {
 			isa = PBXGroup;
 			children = (
+				39F6968A2B5D6D830076305A /* MainTabBarController.swift */,
 				39ADA22A2B59875000F7D28A /* Onboarding */,
 				39ADA22E2B5988D600F7D28A /* ProfileName */,
 				39ADA22D2B5988C300F7D28A /* ProfileImage */,
@@ -316,6 +319,7 @@
 			files = (
 				3905F52E2B5AA39B00B910DD /* ProfileImageViewController.swift in Sources */,
 				3905F5442B5AA7C800B910DD /* SettingViewController.swift in Sources */,
+				39F6968B2B5D6D830076305A /* MainTabBarController.swift in Sources */,
 				39F696832B5CF6090076305A /* Result.swift in Sources */,
 				3905F54F2B5AB83A00B910DD /* SettingTableViewCell.swift in Sources */,
 				3905F5472B5AB01B00B910DD /* SearchLogTableViewCell.swift in Sources */,

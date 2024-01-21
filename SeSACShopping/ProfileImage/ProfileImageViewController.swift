@@ -15,11 +15,13 @@ class ProfileImageViewController: UIViewController {
     // MARK: - 이전 view에서 index 받아와야 함
     var selectIndex = 0
     
+    var type: ProfileSettingType = .new
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .backgroudnColor
         
-        navigationItem.title = "프로필 설정"
+        navigationItem.title = type == .new ? "프로필 설정" : "프로필 수정"
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         
         selectImage.profileImageStyle(image: "profile\(selectIndex + 1)", isSelected: true)
