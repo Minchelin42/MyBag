@@ -18,6 +18,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         
               
+        UserDefaultManager.shared.searchItems.removeAll()
+//        UserDefaultManager.shared.newMember = true
+        
         let isNew = UserDefaultManager.shared.newMember
         
         if isNew {

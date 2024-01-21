@@ -32,15 +32,8 @@ class SearchLogTableViewCell: UITableViewCell {
         
         deleteButton.setImage(UIImage(systemName: "xmark"), for: .normal)
         deleteButton.tintColor = .gray
-        
-        deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
-    }
     
-    @objc func deleteButtonTapped(sender: UIButton) {
-        print(#function)
-        print(sender.tag)
-        // MARK: - 버튼 작동 확인용 -> list 삭제로 변경
-        sender.tintColor = .white
     }
+
 
 }

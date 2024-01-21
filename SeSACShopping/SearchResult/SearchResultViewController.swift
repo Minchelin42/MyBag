@@ -20,6 +20,7 @@ class SearchResultViewController: UIViewController {
     
     // MARK: - API 통신으로 받아오기
     var resultNum = 0
+    var searchItem = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,9 @@ class SearchResultViewController: UIViewController {
         
         resultTopView.backgroundColor = .clear
         resultCollectionView.backgroundColor = .clear
+        
+        navigationItem.title = "\(searchItem)"
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         
         numberOfResultLabel.text = "\(resultNum)개의 검색 결과"
         numberOfResultLabel.font = .systemFont(ofSize: 14, weight: .semibold)
@@ -40,8 +44,17 @@ class SearchResultViewController: UIViewController {
 
         configureCollectionView()
         setLayout()
+        
+        let button = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .plain, target: self, action: #selector(leftBarButtonItemClicked))
+        button.tintColor = .white
+        navigationItem.leftBarButtonItem = button
     }
     
+    @objc func leftBarButtonItemClicked() {
+        print(#function)
+        navigationController?.popViewController(animated: true)
+    }
+
 }
 
 extension SearchResultViewController {

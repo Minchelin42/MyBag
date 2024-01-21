@@ -78,6 +78,8 @@ class ProfileNameViewController: UIViewController {
             sceneDelegate?.window?.rootViewController = vc
             sceneDelegate?.window?.makeKeyAndVisible()
             
+            UserDefaultManager.shared.nickName = inputTextField.text!
+            print(UserDefaultManager.shared.nickName)
             UserDefaultManager.shared.newMember = false
             
         } else {

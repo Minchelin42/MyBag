@@ -13,7 +13,7 @@ class MainSearchEmptyViewController: UIViewController {
     @IBOutlet var emptyImage: UIImageView!
     @IBOutlet var emptyLabel: UILabel!
     
-    let nickName = "떠나고싶은 고래밥"
+    let nickName = UserDefaultManager.shared.nickName
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +31,53 @@ class MainSearchEmptyViewController: UIViewController {
         emptyLabel.text = "최근 검색어가 없어요"
         emptyLabel.font = .boldSystemFont(ofSize: 17)
         emptyLabel.textColor = .textColor
+        
+        searchBar.delegate = self
 
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if !UserDefaultManager.shared.searchItems.isEmpty {
+            
+            let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+            
+            let sceneDelegate = windowScene?.delegate as? SceneDelegate
+            
+            let rootSb = UIStoryboard(name: "Main", bundle: nil)
+            let rootVc = rootSb.instantiateViewController(withIdentifier: "mainSearchTabController") as! UITabBarController
+            
+            sceneDelegate?.window?.rootViewController = rootVc
+            sceneDelegate?.window?.makeKeyAndVisible()
+        }
+    }
 
+}
+
+extension MainSearchEmptyViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print(#function)
+        if !searchBar.text!.isEmpty {
+            UserDefaultManager.shared.searchItems.append(searchBar.text!)
+            print(UserDefaultManager.shared.searchItems)
+            
+            let sb = UIStoryboard(name: "SearchResult", bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: "SearchResultViewController") as! SearchResultViewController
+            
+            vc.resultNum = 12345
+            vc.searchItem = searchBar.text!
+            searchBar.text = ""
+            view.endEditing(true)
+            navigationController?.pushViewController(vc, animated: true)
+            
+        } else {
+
+            let alert = UIAlertController(title: "검색어를 입력해주세요", message: nil, preferredStyle: .alert)
+
+            let button = UIAlertAction(title: "확인", style: .cancel)
+
+            alert.addAction(button)
+            present(alert, animated: true)
+        }
+        
+    }
 }

@@ -8,7 +8,7 @@
 import UIKit
 
 class SettingTableViewCell: UITableViewCell {
-
+    
     @IBOutlet var settingLabel: UILabel!
     
     override func awakeFromNib() {
@@ -19,5 +19,5 @@ class SettingTableViewCell: UITableViewCell {
         settingLabel.font = .systemFont(ofSize: 13)
         settingLabel.textColor = .textColor
     }
-
+    
 }
