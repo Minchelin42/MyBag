@@ -47,16 +47,6 @@
             </objects>
             <point key="canvasLocation" x="8510" y="-496"/>
         </scene>
-        <!--MainSearch-->
-        <scene sceneID="fAX-Bd-x4A">
-            <objects>
-                <viewControllerPlaceholder storyboardName="MainSearch" id="SMf-IH-WBP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="ynB-x1-vjG"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8ZM-mT-N10" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="8031" y="-282"/>
-        </scene>
         <!--SearchResult-->
         <scene sceneID="3ug-pa-FG4">
             <objects>
@@ -65,7 +55,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2eH-JS-dSt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8036" y="-249"/>
+            <point key="canvasLocation" x="8037" y="-251"/>
         </scene>
         <!--SearchDetail-->
         <scene sceneID="Wea-5h-Q21">
@@ -75,7 +65,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t58-v4-SXl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8037" y="-213"/>
+            <point key="canvasLocation" x="8035" y="-219"/>
         </scene>
         <!--Setting-->
         <scene sceneID="m8f-Ef-jZm">
@@ -104,46 +94,26 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QQw-e9-ffC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4925.9541984732823" y="-58.450704225352112"/>
+            <point key="canvasLocation" x="4883" y="-58"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="KRp-Io-o2N">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="9gn-L8-aw6" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="mainSearchEmptyTabController" automaticallyAdjustsScrollViewInsets="NO" id="9gn-L8-aw6" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="acl-7x-kNR">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="tlI-c7-HPG" kind="relationship" relationship="viewControllers" id="gny-P9-tZa"/>
-                        <segue destination="Gim-x8-S5e" kind="relationship" relationship="viewControllers" id="nBx-fV-GKb"/>
+                        <segue destination="NBl-r4-lOe" kind="relationship" relationship="viewControllers" id="QWi-1g-s5w"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xrp-Pn-lka" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6735" y="-72"/>
-        </scene>
-        <!--설정-->
-        <scene sceneID="0z6-Rj-qFI">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Gim-x8-S5e" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="설정" image="person" catalog="system" id="Fh5-RV-hDc">
-                        <color key="badgeColor" red="0.28627450980392155" green="0.86274509803921573" blue="0.5725490196078431" alpha="1" colorSpace="calibratedRGB"/>
-                    </tabBarItem>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WIb-zi-1be">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="UCq-pQ-AEO" kind="relationship" relationship="rootViewController" id="j3j-mj-Fim"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="G3D-Cv-88n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="7582" y="191"/>
+            <point key="canvasLocation" x="6644" y="8"/>
         </scene>
         <!--검색-->
         <scene sceneID="XG0-un-Ema">
@@ -164,7 +134,130 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pGd-Mz-Q4C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7582" y="-496"/>
+            <point key="canvasLocation" x="7581" y="-570"/>
+        </scene>
+        <!--MainSearchEmpty-->
+        <scene sceneID="O3p-eQ-V0z">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MainSearchEmpty" id="Rfe-n8-Rdv" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="43e-R2-ojN"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XVA-iv-hoE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8510" y="-496"/>
+        </scene>
+        <!--MainSearch-->
+        <scene sceneID="yXa-to-Me2">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MainSearch" id="MDp-1k-LAt" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="WLn-QE-YNr"/>
+                    <navigationItem key="navigationItem" id="uS4-HM-TwD"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vfw-CA-XWG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="11374" y="-492"/>
+        </scene>
+        <!--Setting-->
+        <scene sceneID="sPZ-Tp-wL5">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Setting" id="nnB-Va-67T" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="BIQ-rn-7eY"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qzu-kT-0VI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8508" y="191"/>
+        </scene>
+        <!--설정-->
+        <scene sceneID="N7g-Q5-pFy">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NBl-r4-lOe" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="설정" image="person" catalog="system" id="aHd-KL-ANw">
+                        <color key="badgeColor" red="0.28627450980000002" green="0.86274509799999999" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pHf-jz-LU3">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="nnB-Va-67T" kind="relationship" relationship="rootViewController" id="cGQ-EN-utw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rl3-BK-His" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7581" y="346"/>
+        </scene>
+        <!--Setting-->
+        <scene sceneID="Jo9-j3-xXx">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Setting" id="waz-v5-FfM" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="CwW-3a-4if"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9KJ-0Y-Ms8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="11374" y="376"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Vuv-eR-Cr0">
+            <objects>
+                <tabBarController storyboardIdentifier="mainSearchTabController" automaticallyAdjustsScrollViewInsets="NO" id="Vba-Ov-0u0" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hlb-kP-79H">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="zSO-9Q-z8M" kind="relationship" relationship="viewControllers" id="KGr-ji-n8K"/>
+                        <segue destination="r7w-Ib-vdS" kind="relationship" relationship="viewControllers" id="1cb-hn-2dH"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BbG-Vo-Cb0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="9618" y="18"/>
+        </scene>
+        <!--설정-->
+        <scene sceneID="g9L-pm-Zc8">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="r7w-Ib-vdS" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="설정" image="person" catalog="system" id="kPF-7f-5Jg">
+                        <color key="badgeColor" red="0.28627450980000002" green="0.86274509799999999" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FDC-M4-g7e">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="waz-v5-FfM" kind="relationship" relationship="rootViewController" id="RkH-gk-ZEf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3um-ri-LBW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="10585" y="376"/>
+        </scene>
+        <!--검색-->
+        <scene sceneID="4bd-NF-iXK">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zSO-9Q-z8M" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="검색" image="magnifyingglass" catalog="system" id="Vao-IV-nv3">
+                        <color key="badgeColor" red="0.28627450980000002" green="0.86274509799999999" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FcU-It-r4S">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="MDp-1k-LAt" kind="relationship" relationship="rootViewController" id="LwN-I9-wM5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZnW-IH-kdI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="10585" y="-493"/>
         </scene>
     </scenes>
     <resources>

@@ -16,10 +16,21 @@ class UserDefaultManager {
     let ud = UserDefaults.standard
     
     enum UDKey: String {
+        case newMember
         case profileIndex
         case nickName
+        case searchItems
     }
     
+    var newMember: Bool {
+        get {
+            ud.bool(forKey: UDKey.newMember.rawValue)
+        }
+        set {
+            ud.set(newValue, forKey: UDKey.newMember.rawValue)
+        }
+    }
+
     var profileIndex: Int {
         get {
             ud.integer(forKey: UDKey.profileIndex.rawValue)
@@ -35,6 +46,15 @@ class UserDefaultManager {
         }
         set {
             ud.set(newValue, forKey:  UDKey.nickName.rawValue)
+        }
+    }
+    
+    var searchItems: [Any] {
+        get {
+            ud.array(forKey: UDKey.searchItems.rawValue) ?? []
+        }
+        set {
+            ud.set(newValue, forKey: UDKey.searchItems.rawValue)
         }
     }
     

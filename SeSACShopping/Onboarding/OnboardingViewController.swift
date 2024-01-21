@@ -15,12 +15,21 @@ class OnboardingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(#function)
         
         view.backgroundColor = .backgroudnColor
         logoImage.image = UIImage(named: "sesacShopping")
         onboardingImage.image = UIImage(named: "onboarding")
         
         startButton.pointButtonStyle(title: "시작하기")
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print(#function)
+        
+        UserDefaultManager.shared.searchItems.removeAll()
+        UserDefaultManager.shared.newMember = true
 
     }
 

@@ -56,10 +56,41 @@ class ProfileNameViewController: UIViewController {
         checkLabel.font = .systemFont(ofSize: 12)
         
         completeButton.pointButtonStyle(title: "완료")
+        completeButton.addTarget(self, action: #selector(completeButtonTapped), for: .touchUpInside)
+        
 
         let button = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .plain, target: self, action: #selector(leftBarButtonItemClicked))
         button.tintColor = .white
         navigationItem.leftBarButtonItem = button
+    }
+    
+    @objc func completeButtonTapped() {
+        print(#function)
+        
+        if isPossible {
+            let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+            
+            let sceneDelegate = windowScene?.delegate as? SceneDelegate
+            
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: "mainSearchEmptyTabController") as! UITabBarController
+
+            sceneDelegate?.window?.rootViewController = vc
+            sceneDelegate?.window?.makeKeyAndVisible()
+            
+            UserDefaultManager.shared.newMember = false
+            
+        } else {
+
+            let alert = UIAlertController(title: "프로필 등록 실패", message: "닉네임을 다시 확인해주세요!", preferredStyle: .alert)
+            
+            let button = UIAlertAction(title: "확인", style: .cancel)
+
+            alert.addAction(button)
+
+            present(alert, animated: true)
+        }
+
     }
 
     @objc func leftBarButtonItemClicked() {
