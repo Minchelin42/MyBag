@@ -19,6 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
               
         UserDefaultManager.shared.searchItems.removeAll()
+        UserDefaultManager.shared.likeItems.removeAll()
+        
 //        UserDefaultManager.shared.newMember = true
         
         let isNew = UserDefaultManager.shared.newMember

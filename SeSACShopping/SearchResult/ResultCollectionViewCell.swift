@@ -36,16 +36,6 @@ class ResultCollectionViewCell: UICollectionViewCell {
         priceLabel.textColor = .textColor
         priceLabel.font = .systemFont(ofSize: 16, weight: .semibold)
         
-        heartButton.addTarget(self, action: #selector(heartButtonTapped), for: .touchUpInside)
-
-    }
-    
-    @objc func heartButtonTapped(sender: UIButton) {
-        print(#function)
-        print(sender.tag)
-        
-        sender.tintColor = .pointColor
-
     }
 
 }

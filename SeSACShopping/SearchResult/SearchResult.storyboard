@@ -32,6 +32,9 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="정확도"/>
+                                                <connections>
+                                                    <action selector="sortOptionButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="iKl-8V-Ecc"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WUt-e1-0Ad">
                                                 <rect key="frame" x="60" y="0.0" width="50" height="35"/>
@@ -40,6 +43,9 @@
                                                 </constraints>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="날짜순"/>
+                                                <connections>
+                                                    <action selector="sortOptionButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="7iU-2K-rPa"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QgK-UV-46n">
                                                 <rect key="frame" x="120" y="0.0" width="85" height="35"/>
@@ -48,6 +54,9 @@
                                                 </constraints>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="가격 높은 순"/>
+                                                <connections>
+                                                    <action selector="sortOptionButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="gLF-LW-f0j"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cOq-PT-1Xx">
                                                 <rect key="frame" x="215" y="0.0" width="85" height="35"/>
@@ -56,6 +65,9 @@
                                                 </constraints>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="가격 낮은 순"/>
+                                                <connections>
+                                                    <action selector="sortOptionButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Um7-yE-Sen"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -113,13 +125,13 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="accuracyButton" destination="4Hv-NV-xN3" id="9bX-FV-XJp"/>
-                        <outlet property="dateButton" destination="WUt-e1-0Ad" id="Ejh-VN-mRx"/>
-                        <outlet property="highPriceButton" destination="QgK-UV-46n" id="DYJ-M8-h7p"/>
-                        <outlet property="lowPriceButton" destination="cOq-PT-1Xx" id="oTc-ZS-FHP"/>
                         <outlet property="numberOfResultLabel" destination="gbt-nJ-rUo" id="3Ev-l3-VKn"/>
                         <outlet property="resultCollectionView" destination="Ohs-GM-sYk" id="zVU-3b-a5H"/>
                         <outlet property="resultTopView" destination="exL-Kp-aiw" id="1Jn-fi-9fd"/>
+                        <outletCollection property="sortOptionList" destination="4Hv-NV-xN3" collectionClass="NSMutableArray" id="YnN-Af-TbV"/>
+                        <outletCollection property="sortOptionList" destination="WUt-e1-0Ad" collectionClass="NSMutableArray" id="gax-3o-hXj"/>
+                        <outletCollection property="sortOptionList" destination="QgK-UV-46n" collectionClass="NSMutableArray" id="Bgh-NJ-cPT"/>
+                        <outletCollection property="sortOptionList" destination="cOq-PT-1Xx" collectionClass="NSMutableArray" id="NFr-B3-652"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

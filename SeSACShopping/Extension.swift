@@ -50,13 +50,12 @@ extension UIButton {
         }
     }
     
-    func optionButtonStyle(title: String, isSelected: Bool){
+    func optionButtonStyle(isSelected: Bool){
         
         self.layer.borderColor = UIColor.white.cgColor
         self.layer.borderWidth = 1
         self.layer.cornerRadius = 10
         
-        self.setTitle(title, for: .normal)
         self.titleLabel?.font = .systemFont(ofSize: 14)
         self.setTitleColor(isSelected ? .black : .white, for: .normal)
         self.backgroundColor = isSelected ? .white : .black

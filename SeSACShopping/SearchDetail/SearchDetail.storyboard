@@ -36,7 +36,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="resultView" destination="21Z-iT-BAe" id="DMg-qd-mf8"/>
+                        <outlet property="resultView" destination="21Z-iT-BAe" id="YCg-YY-7yW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -20,6 +20,7 @@ class UserDefaultManager {
         case profileIndex
         case nickName
         case searchItems
+        case likeItems
     }
     
     var newMember: Bool {
@@ -55,6 +56,15 @@ class UserDefaultManager {
         }
         set {
             ud.set(newValue, forKey: UDKey.searchItems.rawValue)
+        }
+    }
+    
+    var likeItems: [Any] {
+        get {
+            ud.array(forKey: UDKey.likeItems.rawValue) ?? []
+        }
+        set {
+            ud.set(newValue, forKey: UDKey.likeItems.rawValue)
         }
     }
     
