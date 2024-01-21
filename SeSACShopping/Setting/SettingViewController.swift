@@ -11,7 +11,6 @@ class SettingViewController: UIViewController {
 
     @IBOutlet var settingTableView: UITableView!
     
-    // MARK: - userProfile 저장한 곳에서 가져와야함
     var profileImg = "profile\(UserDefaultManager.shared.profileIndex + 1)"
     var likeCount = UserDefaultManager.shared.likeItems.count.prettyNumber
     var nickName = UserDefaultManager.shared.nickName

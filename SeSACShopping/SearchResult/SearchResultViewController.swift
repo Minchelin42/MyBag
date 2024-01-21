@@ -9,13 +9,6 @@ import UIKit
 import Alamofire
 import Kingfisher
 
-//enum Sort: String {
-//    case sim = "sim"
-//    case date = "date"
-//    case lowToHigh = "arc" //오름차순
-//    case highToLow = "drc" //내림차순
-//}
-
 class SearchResultViewController: UIViewController {
 
     @IBOutlet var resultTopView: UIView!
@@ -23,9 +16,10 @@ class SearchResultViewController: UIViewController {
     @IBOutlet var sortOptionList: [UIButton]!
     
     @IBOutlet var resultCollectionView: UICollectionView!
-    
-    // MARK: - API 통신으로 받아오기
+
     var searchItem = ""
+    
+    var start: Int = 1
     
     var list: Result = Result(lastBuildDate: "", total: 0, start: 0, display: 0, items: [])
     
@@ -66,8 +60,8 @@ class SearchResultViewController: UIViewController {
         nowSortIndex = sender.tag
         sortOptionList[nowSortIndex].optionButtonStyle(isSelected: true)
 
+        self.start = 1
         callRequest(search: searchItem, sort: sortOption[nowSortIndex])
-        resultCollectionView.reloadData()
     }
     
     @objc func leftBarButtonItemClicked() {
@@ -88,11 +82,12 @@ class SearchResultViewController: UIViewController {
     }
 
     func callRequest(search: String, sort: String){
+        print(#function)
         //한글일 경우 인코딩 처리
         let query = search.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         let display = 30
         
-        let url = "https://openapi.naver.com/v1/search/shop.json?query=\(search)&display=\(display)&sort=\(sort)"
+        let url = "https://openapi.naver.com/v1/search/shop.json?query=\(search)&display=\(display)&sort=\(sort)&start=\(start)"
         
         let headers: HTTPHeaders = [
             "X-Naver-Client-Id": APIKey.clientID,
@@ -103,10 +98,20 @@ class SearchResultViewController: UIViewController {
             
             switch response.result {
             case .success(let success):
-                dump(success)
-                self.list = success
+                
+                if self.start == 1 {
+                    self.list = success
+                } else {
+                    self.list.items.append(contentsOf: success.items)
+                }
+                
                 self.numberOfResultLabel.text = "\(self.list.total.prettyNumber)개의 검색 결과"
+                
                 self.resultCollectionView.reloadData()
+                
+                if self.start == 1 && !self.list.items.isEmpty{
+                    self.resultCollectionView.scrollToItem(at: [0, 0], at: .bottom, animated: false)
+                }
                 
             case .failure(let failure):
                 print(failure)
@@ -117,10 +122,27 @@ class SearchResultViewController: UIViewController {
     }
 }
 
+extension SearchResultViewController: UICollectionViewDataSourcePrefetching {
+    
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        print("Prefetch \(indexPaths)")
+        
+        if !list.items.isEmpty {
+            for indexPath in indexPaths {
+                if list.items.count - 3 == indexPath.row && start + list.display < list.total {
+                    start += list.display
+                    callRequest(search: searchItem, sort: sortOption[nowSortIndex])
+                }
+            }
+        }
+    }
+}
+
 extension SearchResultViewController {
     func configureCollectionView() {
         resultCollectionView.delegate = self
         resultCollectionView.dataSource = self
+        resultCollectionView.prefetchDataSource = self
         
         let xib = UINib(nibName: ResultCollectionViewCell.identifier, bundle: nil)
         resultCollectionView.register(xib, forCellWithReuseIdentifier: ResultCollectionViewCell.identifier)
@@ -145,12 +167,11 @@ extension SearchResultViewController {
 
 extension SearchResultViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return list.display
+        return list.items.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ResultCollectionViewCell.identifier, for: indexPath) as! ResultCollectionViewCell
-        
         cell.backgroundColor = .clear
         
         cell.resultImage.kf.setImage(with: URL(string: list.items[indexPath.row].image))
@@ -213,6 +234,7 @@ extension SearchResultViewController: UICollectionViewDelegate, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
  
+        print("select: \(indexPath.row)")
         let sb = UIStoryboard(name: "SearchDetail", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "SearchDetailViewController") as! SearchDetailViewController
         

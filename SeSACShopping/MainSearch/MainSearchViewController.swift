@@ -52,7 +52,6 @@ class MainSearchViewController: UIViewController {
         listTableView.reloadData()
     }
     
-    // MARK: - 최근 검색 테이블 셀 모두 지우기
     @IBAction func listClearButtonTapped(_ sender: UIButton) {
         print(#function)
         UserDefaultManager.shared.searchItems.removeAll()

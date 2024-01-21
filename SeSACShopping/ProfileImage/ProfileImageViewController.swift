@@ -12,7 +12,6 @@ class ProfileImageViewController: UIViewController {
     @IBOutlet var selectImage: UIImageView!
     @IBOutlet var imageList: [UIButton]!
     
-    // MARK: - 이전 view에서 index 받아와야 함
     var selectIndex = 0
     
     var type: ProfileSettingType = .new
@@ -49,7 +48,6 @@ class ProfileImageViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    // MARK: - 바뀐 index값을 이전 view로 데이터 전달 필요
     @IBAction func imageTapped(_ sender: UIButton) {
 
         let index = sender.tag
