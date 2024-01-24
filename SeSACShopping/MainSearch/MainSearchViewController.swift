@@ -23,30 +23,13 @@ class MainSearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .backgroudnColor
-        
-        navigationItem.title = "\(nickName)님의 새싹쇼핑"
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
-
-        searchBar.blackSearchBarStyle()
-        
-        searchListTopView.backgroundColor = .backgroudnColor
-        
-        leftLabel.text = "최근 검색"
-        leftLabel.font = .boldSystemFont(ofSize: 15)
-        leftLabel.textColor = .textColor
-        
-        listClearButton.setTitle("모두 지우기", for: .normal)
-        listClearButton.setTitleColor(.pointColor, for: .normal)
-        listClearButton.titleLabel?.font = .boldSystemFont(ofSize: 15)
-        
-        listTableView.backgroundColor = .clear
-        
+        setBackgroundColor()
+        configureView()
         configureTableView()
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        navigationItem.title = "\(UserDefaultManager.shared.nickName)님의 새싹쇼핑"
         searchList = UserDefaultManager.shared.searchItems
         searchBar.text = ""
         listTableView.reloadData()
@@ -77,8 +60,27 @@ extension MainSearchViewController {
         
         let xib = UINib(nibName: SearchLogTableViewCell.identifier, bundle: nil)
         listTableView.register(xib, forCellReuseIdentifier: SearchLogTableViewCell.identifier)
+    }
+}
+
+extension MainSearchViewController: ViewProtocol {
+    func configureView() {
+        navigationItem.title = "\(nickName)님의 새싹쇼핑"
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+
+        searchBar.blackSearchBarStyle()
         
-//        listTableView.allowsSelection = false
+        searchListTopView.backgroundColor = .backgroudnColor
+        
+        leftLabel.text = "최근 검색"
+        leftLabel.font = .boldSystemFont(ofSize: 15)
+        leftLabel.textColor = .textColor
+        
+        listClearButton.setTitle("모두 지우기", for: .normal)
+        listClearButton.setTitleColor(.pointColor, for: .normal)
+        listClearButton.titleLabel?.font = .boldSystemFont(ofSize: 15)
+        
+        listTableView.backgroundColor = .clear
     }
 }
 
@@ -86,8 +88,15 @@ extension MainSearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         print(#function)
         if !searchBar.text!.isEmpty {
-            UserDefaultManager.shared.searchItems.append(searchBar.text!)
-            print(UserDefaultManager.shared.searchItems)
+
+            if let index = UserDefaultManager.shared.searchItems.firstIndex(where: { $0 as! String == searchBar.text! }) {
+                searchList.remove(at: index)
+                searchList.append(searchBar.text!)
+                UserDefaultManager.shared.searchItems = searchList
+            } else { //없었을 경우
+                UserDefaultManager.shared.searchItems.append(searchBar.text!)
+                print(UserDefaultManager.shared.searchItems)
+            }
             
             let sb = UIStoryboard(name: "SearchResult", bundle: nil)
             let vc = sb.instantiateViewController(withIdentifier: "SearchResultViewController") as! SearchResultViewController
@@ -98,7 +107,6 @@ extension MainSearchViewController: UISearchBarDelegate {
             view.endEditing(true)
             
         } else {
-
             let alert = UIAlertController(title: "검색어를 입력해주세요", message: nil, preferredStyle: .alert)
 
             let button = UIAlertAction(title: "확인", style: .cancel)
@@ -147,7 +155,6 @@ extension MainSearchViewController: UITableViewDelegate, UITableViewDataSource {
         } else {
             listTableView.reloadData()
         }
-        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
