@@ -15,27 +15,17 @@ class SearchDetailViewController: UIViewController {
     var urlString = ""
     var productId = ""
     var productName = ""
+    var productItem: Item = Item(title: "", link: "", image: "", lprice: "", mallName: "", productId: "")
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.backgroundColor = .backgroudnColor
-        
-        navigationItem.title = "\(productName)"
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
 
-        if let url = URL(string: urlString) {
-            
-            let request = URLRequest(url: url)
-            
-            resultView.load(request)
-        }
-        
+        setBackgroundColor()
+        configureView()
+
         let leftButton = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .plain, target: self, action: #selector(leftBarButtonItemClicked))
         leftButton.tintColor = .white
         navigationItem.leftBarButtonItem = leftButton
-        
-        
         
         let rightButton = UIBarButtonItem(image: UIImage(systemName: setLike()), style: .plain, target: self, action: #selector(rightBarButtonItemClicked))
         rightButton.tintColor = .white
@@ -72,16 +62,32 @@ class SearchDetailViewController: UIViewController {
         
         if !hasLike {
             UserDefaultManager.shared.likeItems.append(productId)
+
+            UserDefaultManager.wishList?.append(productItem)
+
         } else {
-            print(UserDefaultManager.shared.likeItems)
-            UserDefaultManager.shared.likeItems.removeAll(where: { $0 as! String == productId })
-            print(UserDefaultManager.shared.likeItems)
+            if let index = UserDefaultManager.shared.likeItems.firstIndex(where: { $0 as! String == productId }) {
+                UserDefaultManager.shared.likeItems.remove(at: index)
+                UserDefaultManager.wishList?.remove(at: index)
+            }
         }
         
         let rightButton = UIBarButtonItem(image: UIImage(systemName: setLike()), style: .plain, target: self, action: #selector(rightBarButtonItemClicked))
         rightButton.tintColor = .white
         navigationItem.rightBarButtonItem = rightButton
     }
+}
 
+extension SearchDetailViewController: ViewProtocol {
+    func configureView() {
+        navigationItem.title = "\(productName)"
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
 
+        if let url = URL(string: urlString) {
+            
+            let request = URLRequest(url: url)
+            
+            resultView.load(request)
+        }
+    }
 }

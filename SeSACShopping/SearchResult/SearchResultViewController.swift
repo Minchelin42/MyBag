@@ -29,21 +29,9 @@ class SearchResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.backgroundColor = .backgroudnColor
-        
-        resultTopView.backgroundColor = .clear
-        resultCollectionView.backgroundColor = .clear
-        navigationItem.title = "\(searchItem)"
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
-        
-        numberOfResultLabel.text = "\(self.list.total.prettyNumber)개의 검색 결과"
-        numberOfResultLabel.font = .systemFont(ofSize: 14, weight: .semibold)
-        numberOfResultLabel.textColor = .pointColor
 
-        sortOptionButtonDesign()
-        sortOptionList[nowSortIndex].optionButtonStyle(isSelected: true)
-
+        setBackgroundColor()
+        configureView()
         configureCollectionView()
         setLayout()
         
@@ -87,7 +75,7 @@ class SearchResultViewController: UIViewController {
         let query = search.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         let display = 30
         
-        let url = "https://openapi.naver.com/v1/search/shop.json?query=\(search)&display=\(display)&sort=\(sort)&start=\(start)"
+        let url = "https://openapi.naver.com/v1/search/shop.json?query=\(query)&display=\(display)&sort=\(sort)&start=\(start)"
         
         let headers: HTTPHeaders = [
             "X-Naver-Client-Id": APIKey.clientID,
@@ -135,6 +123,22 @@ extension SearchResultViewController: UICollectionViewDataSourcePrefetching {
                 }
             }
         }
+    }
+}
+
+extension SearchResultViewController: ViewProtocol {
+    func configureView() {
+        resultTopView.backgroundColor = .clear
+        resultCollectionView.backgroundColor = .clear
+        navigationItem.title = "\(searchItem)"
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        
+        numberOfResultLabel.text = "\(self.list.total.prettyNumber)개의 검색 결과"
+        numberOfResultLabel.font = .systemFont(ofSize: 14, weight: .semibold)
+        numberOfResultLabel.textColor = .pointColor
+        
+        sortOptionButtonDesign()
+        sortOptionList[nowSortIndex].optionButtonStyle(isSelected: true)
     }
 }
 
@@ -222,10 +226,26 @@ extension SearchResultViewController: UICollectionViewDelegate, UICollectionView
         
         if !hasLike {
             UserDefaultManager.shared.likeItems.append(list.items[sender.tag].productId)
+            print(UserDefaultManager.shared.likeItems)
+
+            //wishItems 추가하는 부분
+            let item: Item = list.items[sender.tag]
+
+            UserDefaultManager.wishList?.append(item)
+            print(UserDefaultManager.wishList!)
+//            let savedWishItems = UserDefaultManager.wishList
+//            print(savedWishItems)
+
         } else {
+            
+            if let index = UserDefaultManager.shared.likeItems.firstIndex(where: { $0 as! String == list.items[sender.tag].productId }) {
+                UserDefaultManager.shared.likeItems.remove(at: index)
+                UserDefaultManager.wishList?.remove(at: index)
+            }
+
             print(UserDefaultManager.shared.likeItems)
-            UserDefaultManager.shared.likeItems.removeAll(where: { $0 as! String == list.items[sender.tag].productId })
-            print(UserDefaultManager.shared.likeItems)
+            let savedWishItems = UserDefaultManager.wishList
+            print(savedWishItems!)
         }
         
         resultCollectionView.reloadData()
@@ -240,6 +260,7 @@ extension SearchResultViewController: UICollectionViewDelegate, UICollectionView
         
         vc.urlString = "https://msearch.shopping.naver.com/product/\(list.items[indexPath.row].productId)"
         vc.productId = list.items[indexPath.row].productId
+        vc.productItem = list.items[indexPath.row]
         
         var title = list.items[indexPath.row].title.replacingOccurrences(of: "<b>", with: "")
         title = title.replacingOccurrences(of: "</b>", with: "")
