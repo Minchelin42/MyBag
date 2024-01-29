@@ -32,6 +32,12 @@ class SearchDetailViewController: UIViewController {
         navigationItem.rightBarButtonItem = rightButton
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        let rightButton = UIBarButtonItem(image: UIImage(systemName: setLike()), style: .plain, target: self, action: #selector(rightBarButtonItemClicked))
+        rightButton.tintColor = .white
+        navigationItem.rightBarButtonItem = rightButton
+    }
+    
     func setLike() -> String{
         let hasLike = UserDefaultManager.shared.likeItems.contains { element -> Bool in
             if element as! String == productId {
