@@ -28,6 +28,7 @@
 		3905F54F2B5AB83A00B910DD /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3905F54D2B5AB83A00B910DD /* SettingTableViewCell.swift */; };
 		3905F5502B5AB83A00B910DD /* SettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3905F54E2B5AB83A00B910DD /* SettingTableViewCell.xib */; };
 		3905F5522B5ABA4B00B910DD /* ProfileImage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3905F5512B5ABA4B00B910DD /* ProfileImage.storyboard */; };
+		39375C412B5E6D260053AEE6 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39375C402B5E6D260053AEE6 /* Protocol.swift */; };
 		39ADA2152B59855800F7D28A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39ADA2142B59855800F7D28A /* AppDelegate.swift */; };
 		39ADA2172B59855800F7D28A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39ADA2162B59855800F7D28A /* SceneDelegate.swift */; };
 		39ADA2192B59855800F7D28A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39ADA2182B59855800F7D28A /* ViewController.swift */; };
@@ -36,6 +37,16 @@
 		39ADA2212B59855900F7D28A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39ADA21F2B59855900F7D28A /* LaunchScreen.storyboard */; };
 		39ADA2292B59857D00F7D28A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 39ADA2282B59857D00F7D28A /* .gitignore */; };
 		39ADA22C2B59876B00F7D28A /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39ADA22B2B59876B00F7D28A /* Onboarding.storyboard */; };
+		39C3402E2B5F3688002FD7D4 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 39C3402D2B5F3688002FD7D4 /* Toast */; };
+		39C340302B5F3835002FD7D4 /* WishList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39C3402F2B5F3835002FD7D4 /* WishList.storyboard */; };
+		39C340332B5F3ACD002FD7D4 /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C340322B5F3ACD002FD7D4 /* WishListViewController.swift */; };
+		39EA1BA92B67D5060098B39E /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EA1BA82B67D5060098B39E /* ProfileImage.swift */; };
+		39EA1BAB2B67E6D60098B39E /* NameTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EA1BAA2B67E6D60098B39E /* NameTextField.swift */; };
+		39EA1BAD2B67E8710098B39E /* PointButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EA1BAC2B67E8710098B39E /* PointButton.swift */; };
+		39EA1BAF2B67E9A60098B39E /* ProfileButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EA1BAE2B67E9A60098B39E /* ProfileButton.swift */; };
+		39EA1BB12B67ED130098B39E /* OptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EA1BB02B67ED130098B39E /* OptionButton.swift */; };
+		39EA1BB32B67EE770098B39E /* HeartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EA1BB22B67EE770098B39E /* HeartButton.swift */; };
+		39EA1BB52B67EFB10098B39E /* BlackSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EA1BB42B67EFB10098B39E /* BlackSearchBar.swift */; };
 		39F696752B5ACC560076305A /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F696742B5ACC560076305A /* Extension.swift */; };
 		39F6967C2B5BE6B10076305A /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F6967A2B5BE6B10076305A /* ProfileTableViewCell.swift */; };
 		39F6967D2B5BE6B10076305A /* ProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39F6967B2B5BE6B10076305A /* ProfileTableViewCell.xib */; };
@@ -69,6 +80,7 @@
 		3905F54D2B5AB83A00B910DD /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		3905F54E2B5AB83A00B910DD /* SettingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingTableViewCell.xib; sourceTree = "<group>"; };
 		3905F5512B5ABA4B00B910DD /* ProfileImage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileImage.storyboard; sourceTree = "<group>"; };
+		39375C402B5E6D260053AEE6 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
 		39ADA2112B59855800F7D28A /* SeSACShopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSACShopping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39ADA2142B59855800F7D28A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39ADA2162B59855800F7D28A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +91,15 @@
 		39ADA2222B59855900F7D28A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		39ADA2282B59857D00F7D28A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		39ADA22B2B59876B00F7D28A /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		39C3402F2B5F3835002FD7D4 /* WishList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WishList.storyboard; sourceTree = "<group>"; };
+		39C340322B5F3ACD002FD7D4 /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
+		39EA1BA82B67D5060098B39E /* ProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
+		39EA1BAA2B67E6D60098B39E /* NameTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameTextField.swift; sourceTree = "<group>"; };
+		39EA1BAC2B67E8710098B39E /* PointButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointButton.swift; sourceTree = "<group>"; };
+		39EA1BAE2B67E9A60098B39E /* ProfileButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileButton.swift; sourceTree = "<group>"; };
+		39EA1BB02B67ED130098B39E /* OptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionButton.swift; sourceTree = "<group>"; };
+		39EA1BB22B67EE770098B39E /* HeartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartButton.swift; sourceTree = "<group>"; };
+		39EA1BB42B67EFB10098B39E /* BlackSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackSearchBar.swift; sourceTree = "<group>"; };
 		39F696742B5ACC560076305A /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		39F6967A2B5BE6B10076305A /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		39F6967B2B5BE6B10076305A /* ProfileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTableViewCell.xib; sourceTree = "<group>"; };
@@ -93,6 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39C3402E2B5F3688002FD7D4 /* Toast in Frameworks */,
 				39F696892B5D0A4F0076305A /* Kingfisher in Frameworks */,
 				39F696862B5CF7CB0076305A /* Alamofire in Frameworks */,
 			);
@@ -122,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				39F6968A2B5D6D830076305A /* MainTabBarController.swift */,
+				39EA1BA72B67D4F00098B39E /* CustomView */,
 				39ADA22A2B59875000F7D28A /* Onboarding */,
 				39ADA22E2B5988D600F7D28A /* ProfileName */,
 				39ADA22D2B5988C300F7D28A /* ProfileImage */,
@@ -129,6 +152,7 @@
 				39ADA2302B59890600F7D28A /* MainSearch */,
 				39ADA2312B59891100F7D28A /* SearchResult */,
 				39ADA2322B59891E00F7D28A /* SearchDetail */,
+				39C340312B5F3856002FD7D4 /* WishList */,
 				39ADA2332B59892F00F7D28A /* Setting */,
 				39ADA2142B59855800F7D28A /* AppDelegate.swift */,
 				39ADA2162B59855800F7D28A /* SceneDelegate.swift */,
@@ -141,6 +165,7 @@
 				39F6967E2B5C07200076305A /* UserDefaultManager.swift */,
 				39F696802B5CF30D0076305A /* APIKey.swift */,
 				39F696822B5CF6090076305A /* Result.swift */,
+				39375C402B5E6D260053AEE6 /* Protocol.swift */,
 			);
 			path = SeSACShopping;
 			sourceTree = "<group>";
@@ -225,6 +250,37 @@
 			path = Setting;
 			sourceTree = "<group>";
 		};
+		39C340312B5F3856002FD7D4 /* WishList */ = {
+			isa = PBXGroup;
+			children = (
+				39C3402F2B5F3835002FD7D4 /* WishList.storyboard */,
+				39C340322B5F3ACD002FD7D4 /* WishListViewController.swift */,
+			);
+			path = WishList;
+			sourceTree = "<group>";
+		};
+		39EA1BA72B67D4F00098B39E /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				39EA1BB62B67F1700098B39E /* Button */,
+				39EA1BA82B67D5060098B39E /* ProfileImage.swift */,
+				39EA1BAA2B67E6D60098B39E /* NameTextField.swift */,
+				39EA1BB42B67EFB10098B39E /* BlackSearchBar.swift */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
+		39EA1BB62B67F1700098B39E /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				39EA1BAE2B67E9A60098B39E /* ProfileButton.swift */,
+				39EA1BAC2B67E8710098B39E /* PointButton.swift */,
+				39EA1BB02B67ED130098B39E /* OptionButton.swift */,
+				39EA1BB22B67EE770098B39E /* HeartButton.swift */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -244,6 +300,7 @@
 			packageProductDependencies = (
 				39F696852B5CF7CB0076305A /* Alamofire */,
 				39F696882B5D0A4F0076305A /* Kingfisher */,
+				39C3402D2B5F3688002FD7D4 /* Toast */,
 			);
 			productName = SeSACShopping;
 			productReference = 39ADA2112B59855800F7D28A /* SeSACShopping.app */;
@@ -276,6 +333,7 @@
 			packageReferences = (
 				39F696842B5CF7CB0076305A /* XCRemoteSwiftPackageReference "Alamofire" */,
 				39F696872B5D0A4F0076305A /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				39C3402C2B5F3688002FD7D4 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 			);
 			productRefGroup = 39ADA2122B59855800F7D28A /* Products */;
 			projectDirPath = "";
@@ -302,6 +360,7 @@
 				39ADA21C2B59855800F7D28A /* Main.storyboard in Resources */,
 				39ADA22C2B59876B00F7D28A /* Onboarding.storyboard in Resources */,
 				3905F5522B5ABA4B00B910DD /* ProfileImage.storyboard in Resources */,
+				39C340302B5F3835002FD7D4 /* WishList.storyboard in Resources */,
 				3905F52A2B5AA37300B910DD /* ProfileName.storyboard in Resources */,
 				3905F5322B5AA3DF00B910DD /* MainSearch.storyboard in Resources */,
 				39F6967D2B5BE6B10076305A /* ProfileTableViewCell.xib in Resources */,
@@ -317,6 +376,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39EA1BAB2B67E6D60098B39E /* NameTextField.swift in Sources */,
+				39EA1BAF2B67E9A60098B39E /* ProfileButton.swift in Sources */,
+				39EA1BB52B67EFB10098B39E /* BlackSearchBar.swift in Sources */,
 				3905F52E2B5AA39B00B910DD /* ProfileImageViewController.swift in Sources */,
 				3905F5442B5AA7C800B910DD /* SettingViewController.swift in Sources */,
 				39F6968B2B5D6D830076305A /* MainTabBarController.swift in Sources */,
@@ -324,6 +386,7 @@
 				3905F54F2B5AB83A00B910DD /* SettingTableViewCell.swift in Sources */,
 				3905F5472B5AB01B00B910DD /* SearchLogTableViewCell.swift in Sources */,
 				3905F53C2B5AA77700B910DD /* SearchResultViewController.swift in Sources */,
+				39C340332B5F3ACD002FD7D4 /* WishListViewController.swift in Sources */,
 				3905F52C2B5AA38200B910DD /* ProfileNameViewController.swift in Sources */,
 				39ADA2192B59855800F7D28A /* ViewController.swift in Sources */,
 				3905F5342B5AA3EC00B910DD /* MainSearchViewController.swift in Sources */,
@@ -331,12 +394,17 @@
 				39F6967C2B5BE6B10076305A /* ProfileTableViewCell.swift in Sources */,
 				39ADA2152B59855800F7D28A /* AppDelegate.swift in Sources */,
 				3905F5402B5AA79F00B910DD /* SearchDetailViewController.swift in Sources */,
+				39EA1BB12B67ED130098B39E /* OptionButton.swift in Sources */,
 				39ADA2172B59855800F7D28A /* SceneDelegate.swift in Sources */,
 				3905F5282B5AA35600B910DD /* OnboardingViewController.swift in Sources */,
+				39EA1BB32B67EE770098B39E /* HeartButton.swift in Sources */,
 				3905F54B2B5AB39B00B910DD /* ResultCollectionViewCell.swift in Sources */,
+				39EA1BA92B67D5060098B39E /* ProfileImage.swift in Sources */,
+				39375C412B5E6D260053AEE6 /* Protocol.swift in Sources */,
 				39F6967F2B5C07200076305A /* UserDefaultManager.swift in Sources */,
 				39F696812B5CF30D0076305A /* APIKey.swift in Sources */,
 				3905F5382B5AA74C00B910DD /* MainSearchEmptyViewController.swift in Sources */,
+				39EA1BAD2B67E8710098B39E /* PointButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,6 +558,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SeSACShopping/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "민지은";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -521,6 +590,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SeSACShopping/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "민지은";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -567,6 +637,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		39C3402C2B5F3688002FD7D4 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.0;
+			};
+		};
 		39F696842B5CF7CB0076305A /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -586,6 +664,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		39C3402D2B5F3688002FD7D4 /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 39C3402C2B5F3688002FD7D4 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
+		};
 		39F696852B5CF7CB0076305A /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 39F696842B5CF7CB0076305A /* XCRemoteSwiftPackageReference "Alamofire" */;

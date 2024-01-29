@@ -10,7 +10,7 @@ import UIKit
 class ProfileImageViewController: UIViewController {
 
     @IBOutlet var selectImage: UIImageView!
-    @IBOutlet var imageList: [UIButton]!
+    @IBOutlet var imageList: [ProfileButton]!
     
     var selectIndex = 0
     
@@ -18,25 +18,9 @@ class ProfileImageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .backgroudnColor
+        setBackgroundColor()
+        configureView()
         
-        navigationItem.title = type == .new ? "프로필 설정" : "프로필 수정"
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
-        
-        selectImage.profileImageStyle(image: "profile\(selectIndex + 1)", isSelected: true)
-        
-        for index in 0...imageList.count - 1 {
-            
-            imageList[index].tag = index
-            
-            if index == selectIndex {
-                imageList[index].isSelected = true
-                imageList[index].profileButtonStyle(image: "profile\(index + 1)", isSelected: true)
-            } else {
-                imageList[index].profileButtonStyle(image: "profile\(index + 1)", isSelected: false)
-            }
-        }
-
         let button = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .plain, target: self, action: #selector(leftBarButtonItemClicked))
         button.tintColor = .white
         navigationItem.leftBarButtonItem = button
@@ -44,7 +28,6 @@ class ProfileImageViewController: UIViewController {
 
     @objc func leftBarButtonItemClicked() {
         print(#function)
-
         navigationController?.popViewController(animated: true)
     }
     
@@ -56,14 +39,38 @@ class ProfileImageViewController: UIViewController {
         sender.isSelected.toggle()
         selectButton.isSelected.toggle()
         
-        selectButton.profileButtonStyle(image: "profile\(selectIndex + 1)", isSelected: selectButton.isSelected)
-        imageList[index].profileButtonStyle(image: "profile\(index + 1)", isSelected: sender.isSelected)
+        selectButton.configureView(image: "profile\(selectIndex + 1)", isSelected: selectButton.isSelected)
+        
+        imageList[index].configureView(image: "profile\(index + 1)", isSelected: sender.isSelected)
         
         selectIndex = index
         UserDefaultManager.shared.profileIndex = selectIndex
         
-        selectImage.profileImageStyle(image: "profile\(selectIndex + 1)", isSelected: true)
+        selectImage.image = UIImage(named: "profile\(selectIndex + 1)")
 
     }
     
+}
+
+extension ProfileImageViewController: ViewProtocol {
+    func configureView() {
+        navigationItem.title = type == .new ? "프로필 설정" : "프로필 수정"
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+
+        selectImage.image = UIImage(named: "profile\(selectIndex + 1)")
+        
+        for index in 0...imageList.count - 1 {
+            
+            imageList[index].tag = index
+            
+            if index == selectIndex {
+                imageList[index].isSelected = true
+
+                imageList[index].configureView(image: "profile\(index + 1)", isSelected: true)
+            } else {
+
+                imageList[index].configureView(image: "profile\(index + 1)", isSelected: false)
+            }
+        }
+    }
 }

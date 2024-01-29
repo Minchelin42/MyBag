@@ -13,7 +13,7 @@ class SearchResultViewController: UIViewController {
 
     @IBOutlet var resultTopView: UIView!
     @IBOutlet var numberOfResultLabel: UILabel!
-    @IBOutlet var sortOptionList: [UIButton]!
+    @IBOutlet var sortOptionList: [OptionButton]!
     
     @IBOutlet var resultCollectionView: UICollectionView!
 
@@ -43,10 +43,10 @@ class SearchResultViewController: UIViewController {
     
     @IBAction func sortOptionButtonTapped(_ sender: UIButton) {
         print(#function)
-        
-        sortOptionList[nowSortIndex].optionButtonStyle(isSelected: false)
+
+        sortOptionList[nowSortIndex].configureView(isSelected: false)
         nowSortIndex = sender.tag
-        sortOptionList[nowSortIndex].optionButtonStyle(isSelected: true)
+        sortOptionList[nowSortIndex].configureView(isSelected: true)
 
         self.start = 1
         callRequest(search: searchItem, sort: sortOption[nowSortIndex])
@@ -64,7 +64,7 @@ class SearchResultViewController: UIViewController {
     func sortOptionButtonDesign() {
         for index in 0...3 {
             sortOptionList[index].setTitle(buttonTitle[index], for: .normal)
-            sortOptionList[index].optionButtonStyle(isSelected: false)
+            sortOptionList[index].configureView(isSelected: false)
             sortOptionList[index].tag = index
         }
     }
@@ -138,7 +138,7 @@ extension SearchResultViewController: ViewProtocol {
         numberOfResultLabel.textColor = .pointColor
         
         sortOptionButtonDesign()
-        sortOptionList[nowSortIndex].optionButtonStyle(isSelected: true)
+        sortOptionList[nowSortIndex].configureView(isSelected: true)
     }
 }
 
@@ -192,7 +192,7 @@ extension SearchResultViewController: UICollectionViewDelegate, UICollectionView
             }
         }
 
-        cell.heartButton.heartButtonStyle(isSelected: hasLike)
+        cell.heartButton.configureView(isSelected: hasLike)
 
         cell.companyLabel.text = "\(list.items[indexPath.row].mallName)"
         

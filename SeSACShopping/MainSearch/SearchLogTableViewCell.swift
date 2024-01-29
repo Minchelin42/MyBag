@@ -17,7 +17,6 @@ class SearchLogTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-
         
         circleView.layer.cornerRadius = circleView.frame.width / 2
         circleView.layer.borderWidth = 1

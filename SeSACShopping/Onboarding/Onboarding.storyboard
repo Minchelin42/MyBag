@@ -23,7 +23,7 @@
                                     <constraint firstAttribute="width" secondItem="OoR-cp-PS9" secondAttribute="height" id="a7V-zr-z26"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Wl-cj-h9z">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Wl-cj-h9z" customClass="PointButton" customModule="SeSACShopping" customModuleProvider="target">
                                 <rect key="frame" x="20" y="733" width="353" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="S1l-JA-R98"/>

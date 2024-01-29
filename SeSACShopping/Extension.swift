@@ -25,72 +25,7 @@ extension UIColor {
 }
 
 extension UIButton {
-    
     static var isSelected: Bool = false
-    
-    func pointButtonStyle(title: String) {
-        self.setTitle(title, for: .normal)
-        self.setTitleColor(.textColor, for: .normal)
-        self.titleLabel?.font = .boldSystemFont(ofSize: 17)
-        
-        self.backgroundColor = .pointColor
-        self.clipsToBounds = true
-        self.layer.cornerRadius = 10
-    }
-    
-    func profileButtonStyle(image: String, isSelected: Bool){
-        self.setImage(UIImage(named: image), for: .normal)
-        self.clipsToBounds = true
-        self.layer.cornerRadius = self.frame.width / 2
-        if isSelected {
-            self.layer.borderWidth = 5
-            self.layer.borderColor = UIColor.pointColor.cgColor
-        } else {
-            self.layer.borderColor = UIColor.clear.cgColor
-        }
-    }
-    
-    func optionButtonStyle(isSelected: Bool){
-        
-        self.layer.borderColor = UIColor.white.cgColor
-        self.layer.borderWidth = 1
-        self.layer.cornerRadius = 10
-        
-        self.titleLabel?.font = .systemFont(ofSize: 14)
-        self.setTitleColor(isSelected ? .black : .white, for: .normal)
-        self.backgroundColor = isSelected ? .white : .black
-    }
-    
-    func heartButtonStyle(isSelected: Bool){
-        self.layer.cornerRadius = self.frame.width / 2
-        self.backgroundColor = .white
-        self.setImage(UIImage(systemName: isSelected ? "suit.heart.fill" : "suit.heart"), for: .normal)
-        self.tintColor = .black
-    }
-    
-}
-
-extension UIImageView {
-    func profileImageStyle(image: String, isSelected: Bool){
-        self.image = UIImage(named: image)
-        self.clipsToBounds = true
-        self.layer.cornerRadius = self.frame.width / 2
-        self.layer.borderWidth = 5
-        self.layer.borderColor = UIColor.pointColor.cgColor
-    }
-}
-
-extension UISearchBar {
-    func blackSearchBarStyle() {
-        self.barTintColor = .backgroudnColor
-        self.searchTextField.textColor = .textColor
-        self.searchTextField.backgroundColor = .darkGrayColor
-        self.searchTextField.attributedPlaceholder = NSAttributedString(string: "브랜드, 상품, 프로필, 태그 등", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
-    }
-}
-
-protocol ViewProtocol {
-    func configureView()
 }
 
 protocol ReusableProtocol {
@@ -98,6 +33,7 @@ protocol ReusableProtocol {
 }
 
 extension UITableViewCell {
+    
     static var identifier: String {
         return String(describing: self)
     }
@@ -112,6 +48,12 @@ extension UICollectionViewCell {
 extension UIViewController: ReusableProtocol {
     static var identifier: String {
         return String(describing: self)
+    }
+}
+
+extension UIViewController {
+    func setBackgroundColor() {
+        view.backgroundColor = .backgroudnColor
     }
 }
 

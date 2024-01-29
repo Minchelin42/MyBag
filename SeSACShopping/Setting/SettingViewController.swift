@@ -20,15 +20,9 @@ class SettingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .backgroudnColor
-        settingTableView.backgroundColor = .clear
-        
-        navigationItem.title = "설정"
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
-
-        
+        setBackgroundColor()
+        configureView()
         configureTableView()
-
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -50,10 +44,18 @@ extension SettingViewController {
         let xib = UINib(nibName: ProfileTableViewCell.identifier, bundle: nil)
         settingTableView.register(xib, forCellReuseIdentifier: ProfileTableViewCell.identifier)
 
-        
         let xib2 = UINib(nibName: SettingTableViewCell.identifier, bundle: nil)
         settingTableView.register(xib2, forCellReuseIdentifier: SettingTableViewCell.identifier)
 
+    }
+}
+
+extension SettingViewController: ViewProtocol {
+    func configureView() {
+        settingTableView.backgroundColor = .clear
+        
+        navigationItem.title = "설정"
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
     }
 }
 
@@ -82,8 +84,8 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: ProfileTableViewCell.identifier, for: indexPath) as! ProfileTableViewCell
-            
-            cell.profileImage.profileImageStyle(image: "\(profileImg)", isSelected: true)
+
+            cell.profileImage.image = UIImage(named: "\(profileImg)")
             
             cell.nameLabel.text = "\(nickName)"
             cell.countLabel.text = "\(likeCount)개의 상품"
@@ -135,9 +137,6 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
             alert.addAction(checkButton)
             
             present(alert, animated: true)
- 
         }
     }
-    
-    
 }

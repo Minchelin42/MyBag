@@ -68,8 +68,6 @@ extension MainSearchViewController: ViewProtocol {
         navigationItem.title = "\(nickName)님의 새싹쇼핑"
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
 
-        searchBar.blackSearchBarStyle()
-        
         searchListTopView.backgroundColor = .backgroudnColor
         
         leftLabel.text = "최근 검색"

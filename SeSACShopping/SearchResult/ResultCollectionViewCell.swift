@@ -12,7 +12,7 @@ class ResultCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var resultImage: UIImageView!
 
-    @IBOutlet var heartButton: UIButton!
+    @IBOutlet var heartButton: HeartButton!
     
     @IBOutlet var companyLabel: UILabel!
     @IBOutlet var productLabel: UILabel!
@@ -24,7 +24,7 @@ class ResultCollectionViewCell: UICollectionViewCell {
         resultImage.layer.cornerRadius = 20
         resultImage.contentMode = .scaleAspectFill
         
-        heartButton.heartButtonStyle(isSelected: heartButton.isSelected)
+        heartButton.configureView(isSelected: heartButton.isSelected)
         
         companyLabel.textColor = .lightGray
         companyLabel.font = .systemFont(ofSize: 13, weight: .regular)

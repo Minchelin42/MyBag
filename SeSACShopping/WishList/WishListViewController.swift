@@ -122,7 +122,7 @@ extension WishListViewController: UICollectionViewDelegate, UICollectionViewData
         
         let like = UserDefaultManager.shared.likeItems
 
-        cell.heartButton.heartButtonStyle(isSelected: true)
+        cell.heartButton.configureView(isSelected: true)
         
         cell.companyLabel.text = "\(list[indexPath.row].mallName)"
         

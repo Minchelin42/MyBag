@@ -17,23 +17,13 @@ class OnboardingViewController: UIViewController {
         super.viewDidLoad()
         print(#function)
         
-        view.backgroundColor = .backgroudnColor
-        logoImage.image = UIImage(named: "sesacShopping")
-        onboardingImage.image = UIImage(named: "onboarding")
-        
-        startButton.pointButtonStyle(title: "시작하기")
-
+        setBackgroundColor()
+        configureView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         print(#function)
-        
-        UserDefaultManager.shared.profileIndex = Int.random(in: 0...13)
-        UserDefaultManager.shared.nickName = ""
-        UserDefaultManager.shared.searchItems.removeAll()
-        UserDefaultManager.shared.likeItems.removeAll()
-        UserDefaultManager.shared.newMember = true
-
+        resetData()
     }
 
     @IBAction func startButtonTapped(_ sender: UIButton) {
@@ -45,4 +35,23 @@ class OnboardingViewController: UIViewController {
         
     }
     
+    func resetData() {
+        UserDefaultManager.shared.profileIndex = Int.random(in: 0...13)
+        UserDefaultManager.shared.nickName = ""
+        UserDefaultManager.shared.searchItems.removeAll()
+        UserDefaultManager.shared.likeItems.removeAll()
+        UserDefaultManager.wishList?.removeAll()
+        UserDefaultManager.shared.newMember = true
+    }
+    
+}
+
+
+extension OnboardingViewController: ViewProtocol {
+    func configureView() {
+        logoImage.image = UIImage(named: "sesacShopping")
+        onboardingImage.image = UIImage(named: "onboarding")
+
+        startButton.setTitle("시작하기", for: .normal)
+    }
 }

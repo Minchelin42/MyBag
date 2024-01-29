@@ -44,7 +44,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="izI-OP-HlL">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="izI-OP-HlL" customClass="HeartButton" customModule="SeSACShopping" customModuleProvider="target">
                         <rect key="frame" x="264" y="235.33333333333334" width="40" height="40.000000000000028"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="HQb-TT-YEV"/>
