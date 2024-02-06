@@ -68,7 +68,6 @@ extension ProfileImageViewController: ViewProtocol {
 
                 imageList[index].configureView(image: "profile\(index + 1)", isSelected: true)
             } else {
-
                 imageList[index].configureView(image: "profile\(index + 1)", isSelected: false)
             }
         }

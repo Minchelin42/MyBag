@@ -50,6 +50,7 @@
 		39EA1BB82B67F5C70098B39E /* OnboardingViewControllerCB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EA1BB72B67F5C70098B39E /* OnboardingViewControllerCB.swift */; };
 		39EA1BBB2B67F7390098B39E /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 39EA1BBA2B67F7390098B39E /* SnapKit */; };
 		39EA1BBD2B67F7390098B39E /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 39EA1BBC2B67F7390098B39E /* SnapKit-Dynamic */; };
+		39EA1BBF2B67FAA60098B39E /* ProfileNameViewControllerCB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EA1BBE2B67FAA60098B39E /* ProfileNameViewControllerCB.swift */; };
 		39F696752B5ACC560076305A /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F696742B5ACC560076305A /* Extension.swift */; };
 		39F6967C2B5BE6B10076305A /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F6967A2B5BE6B10076305A /* ProfileTableViewCell.swift */; };
 		39F6967D2B5BE6B10076305A /* ProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39F6967B2B5BE6B10076305A /* ProfileTableViewCell.xib */; };
@@ -104,6 +105,7 @@
 		39EA1BB22B67EE770098B39E /* HeartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartButton.swift; sourceTree = "<group>"; };
 		39EA1BB42B67EFB10098B39E /* BlackSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackSearchBar.swift; sourceTree = "<group>"; };
 		39EA1BB72B67F5C70098B39E /* OnboardingViewControllerCB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewControllerCB.swift; sourceTree = "<group>"; };
+		39EA1BBE2B67FAA60098B39E /* ProfileNameViewControllerCB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNameViewControllerCB.swift; sourceTree = "<group>"; };
 		39F696742B5ACC560076305A /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		39F6967A2B5BE6B10076305A /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		39F6967B2B5BE6B10076305A /* ProfileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTableViewCell.xib; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 			children = (
 				3905F5292B5AA37300B910DD /* ProfileName.storyboard */,
 				3905F52B2B5AA38200B910DD /* ProfileNameViewController.swift */,
+				39EA1BBE2B67FAA60098B39E /* ProfileNameViewControllerCB.swift */,
 			);
 			path = ProfileName;
 			sourceTree = "<group>";
@@ -408,6 +411,7 @@
 				39EA1BB12B67ED130098B39E /* OptionButton.swift in Sources */,
 				39ADA2172B59855800F7D28A /* SceneDelegate.swift in Sources */,
 				3905F5282B5AA35600B910DD /* OnboardingViewController.swift in Sources */,
+				39EA1BBF2B67FAA60098B39E /* ProfileNameViewControllerCB.swift in Sources */,
 				39EA1BB32B67EE770098B39E /* HeartButton.swift in Sources */,
 				3905F54B2B5AB39B00B910DD /* ResultCollectionViewCell.swift in Sources */,
 				39EA1BA92B67D5060098B39E /* ProfileImage.swift in Sources */,
