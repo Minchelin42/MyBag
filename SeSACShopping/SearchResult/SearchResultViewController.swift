@@ -49,7 +49,28 @@ class SearchResultViewController: UIViewController {
         sortOptionList[nowSortIndex].configureView(isSelected: true)
 
         self.start = 1
-        callRequest(search: searchItem, sort: sortOption[nowSortIndex])
+        SearchAPIManager.callRequest(query: searchItem, sort: sortOption[nowSortIndex], start: start) { result, error in
+            if error == nil { //movie에 데이터가 들어간 것
+                guard let result = result else { return }
+
+                if self.start == 1 {
+                    self.list = result
+                } else {
+                    self.list.items.append(contentsOf: result.items)
+                }
+                
+                self.numberOfResultLabel.text = "\(self.list.total.prettyNumber)개의 검색 결과"
+                
+                self.resultCollectionView.reloadData()
+                
+                if self.start == 1 && !self.list.items.isEmpty{
+                    self.resultCollectionView.scrollToItem(at: [0, 0], at: .bottom, animated: false)
+                }
+
+            } else {
+                print("에러 발생")
+            }
+        }
     }
     
     @objc func leftBarButtonItemClicked() {
@@ -58,7 +79,27 @@ class SearchResultViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        callRequest(search: searchItem, sort: sortOption[nowSortIndex])
+        SearchAPIManager.callRequest(query: searchItem, sort: sortOption[nowSortIndex], start: start) { result, error in
+            if error == nil { //movie에 데이터가 들어간 것
+                guard let result = result else { return }
+
+                if self.start == 1 {
+                    self.list = result
+                } else {
+                    self.list.items.append(contentsOf: result.items)
+                }
+                
+                self.numberOfResultLabel.text = "\(self.list.total.prettyNumber)개의 검색 결과"
+                
+                self.resultCollectionView.reloadData()
+                
+                if self.start == 1 && !self.list.items.isEmpty{
+                    self.resultCollectionView.scrollToItem(at: [0, 0], at: .bottom, animated: false)
+                }
+            } else {
+                print("에러 발생")
+            }
+        }
     }
     
     func sortOptionButtonDesign() {
@@ -69,45 +110,6 @@ class SearchResultViewController: UIViewController {
         }
     }
 
-    func callRequest(search: String, sort: String){
-        print(#function)
-        //한글일 경우 인코딩 처리
-        let query = search.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-        let display = 30
-        
-        let url = "https://openapi.naver.com/v1/search/shop.json?query=\(query)&display=\(display)&sort=\(sort)&start=\(start)"
-        
-        let headers: HTTPHeaders = [
-            "X-Naver-Client-Id": APIKey.clientID,
-            "X-Naver-Client-Secret": APIKey.clientSecret
-        ]
-        
-        AF.request(url, method: .get, headers: headers).responseDecodable(of: Result.self) { response in
-            
-            switch response.result {
-            case .success(let success):
-                
-                if self.start == 1 {
-                    self.list = success
-                } else {
-                    self.list.items.append(contentsOf: success.items)
-                }
-                
-                self.numberOfResultLabel.text = "\(self.list.total.prettyNumber)개의 검색 결과"
-                
-                self.resultCollectionView.reloadData()
-                
-                if self.start == 1 && !self.list.items.isEmpty{
-                    self.resultCollectionView.scrollToItem(at: [0, 0], at: .bottom, animated: false)
-                }
-                
-            case .failure(let failure):
-                print(failure)
-            }
-            
-        }
-        
-    }
 }
 
 extension SearchResultViewController: UICollectionViewDataSourcePrefetching {
@@ -119,7 +121,29 @@ extension SearchResultViewController: UICollectionViewDataSourcePrefetching {
             for indexPath in indexPaths {
                 if list.items.count - 3 == indexPath.row && start + list.display < list.total {
                     start += list.display
-                    callRequest(search: searchItem, sort: sortOption[nowSortIndex])
+                    SearchAPIManager.callRequest(query: searchItem, sort: sortOption[nowSortIndex], start: self.start) { result, error in
+                        if error == nil { //movie에 데이터가 들어간 것
+                            guard let result = result else { return }
+                            
+                            if self.start == 1 {
+                                self.list = result
+                            } else {
+                                self.list.items.append(contentsOf: result.items)
+                            }
+                            
+                            self.numberOfResultLabel.text = "\(self.list.total.prettyNumber)개의 검색 결과"
+                            
+                            self.resultCollectionView.reloadData()
+                            
+                            if self.start == 1 && !self.list.items.isEmpty{
+                                self.resultCollectionView.scrollToItem(at: [0, 0], at: .bottom, animated: false)
+                            }
+                            
+                            
+                        } else {
+                            print("에러 발생")
+                        }
+                    }
                 }
             }
         }
@@ -232,7 +256,7 @@ extension SearchResultViewController: UICollectionViewDelegate, UICollectionView
             let item: Item = list.items[sender.tag]
 
             UserDefaultManager.wishList?.append(item)
-            print(UserDefaultManager.wishList!)
+//            print(UserDefaultManager.wishList!)
 //            let savedWishItems = UserDefaultManager.wishList
 //            print(savedWishItems)
 

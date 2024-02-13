@@ -14,15 +14,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 
-        guard let scene = (scene as? UIWindowScene) else { return }
-        window = UIWindow(windowScene: scene)
-        
-        //스토리보드 기반 VC vs 코드 기반 VC
-        window?.rootViewController = ProfileNameViewControllerCB()
-        
-        window?.makeKeyAndVisible()
+//        guard let scene = (scene as? UIWindowScene) else { return }
+//        window = UIWindow(windowScene: scene)
+//        
+//        //스토리보드 기반 VC vs 코드 기반 VC
+//        window?.rootViewController = ProfileNameViewControllerCB()
+//        
+//        window?.makeKeyAndVisible()
 
-        /*
+        
         let isNew = UserDefaultManager.shared.newMember
         
         if isNew {
@@ -63,7 +63,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         
         guard let _ = (scene as? UIWindowScene) else { return }
-         */
+         
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
