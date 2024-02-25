@@ -30,6 +30,8 @@
 		3905F5522B5ABA4B00B910DD /* ProfileImage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3905F5512B5ABA4B00B910DD /* ProfileImage.storyboard */; };
 		390C23282B7BAF8800792385 /* SearchAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390C23272B7BAF8800792385 /* SearchAPIManager.swift */; };
 		39375C412B5E6D260053AEE6 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39375C402B5E6D260053AEE6 /* Protocol.swift */; };
+		39A89FEA2B8B916300FAF370 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A89FE92B8B916300FAF370 /* Observable.swift */; };
+		39A89FEC2B8B91E900FAF370 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A89FEB2B8B91E900FAF370 /* ProfileModel.swift */; };
 		39ADA2152B59855800F7D28A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39ADA2142B59855800F7D28A /* AppDelegate.swift */; };
 		39ADA2172B59855800F7D28A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39ADA2162B59855800F7D28A /* SceneDelegate.swift */; };
 		39ADA2192B59855800F7D28A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39ADA2182B59855800F7D28A /* ViewController.swift */; };
@@ -87,6 +89,8 @@
 		3905F5512B5ABA4B00B910DD /* ProfileImage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileImage.storyboard; sourceTree = "<group>"; };
 		390C23272B7BAF8800792385 /* SearchAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPIManager.swift; sourceTree = "<group>"; };
 		39375C402B5E6D260053AEE6 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
+		39A89FE92B8B916300FAF370 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		39A89FEB2B8B91E900FAF370 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		39ADA2112B59855800F7D28A /* SeSACShopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSACShopping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39ADA2142B59855800F7D28A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39ADA2162B59855800F7D28A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -156,6 +160,7 @@
 				39F6968A2B5D6D830076305A /* MainTabBarController.swift */,
 				39EA1BA72B67D4F00098B39E /* CustomView */,
 				39ADA22A2B59875000F7D28A /* Onboarding */,
+				39A89FEB2B8B91E900FAF370 /* ProfileModel.swift */,
 				39ADA22E2B5988D600F7D28A /* ProfileName */,
 				39ADA22D2B5988C300F7D28A /* ProfileImage */,
 				39ADA22F2B5988ED00F7D28A /* MainSearchEmpty */,
@@ -177,6 +182,7 @@
 				39F696822B5CF6090076305A /* Result.swift */,
 				39375C402B5E6D260053AEE6 /* Protocol.swift */,
 				390C23272B7BAF8800792385 /* SearchAPIManager.swift */,
+				39A89FE92B8B916300FAF370 /* Observable.swift */,
 			);
 			path = SeSACShopping;
 			sourceTree = "<group>";
@@ -401,6 +407,7 @@
 				39F6968B2B5D6D830076305A /* MainTabBarController.swift in Sources */,
 				39F696832B5CF6090076305A /* Result.swift in Sources */,
 				3905F54F2B5AB83A00B910DD /* SettingTableViewCell.swift in Sources */,
+				39A89FEC2B8B91E900FAF370 /* ProfileModel.swift in Sources */,
 				3905F5472B5AB01B00B910DD /* SearchLogTableViewCell.swift in Sources */,
 				3905F53C2B5AA77700B910DD /* SearchResultViewController.swift in Sources */,
 				39C340332B5F3ACD002FD7D4 /* WishListViewController.swift in Sources */,
@@ -414,6 +421,7 @@
 				39EA1BB12B67ED130098B39E /* OptionButton.swift in Sources */,
 				39ADA2172B59855800F7D28A /* SceneDelegate.swift in Sources */,
 				3905F5282B5AA35600B910DD /* OnboardingViewController.swift in Sources */,
+				39A89FEA2B8B916300FAF370 /* Observable.swift in Sources */,
 				39EA1BBF2B67FAA60098B39E /* ProfileNameViewControllerCB.swift in Sources */,
 				39EA1BB32B67EE770098B39E /* HeartButton.swift in Sources */,
 				3905F54B2B5AB39B00B910DD /* ResultCollectionViewCell.swift in Sources */,

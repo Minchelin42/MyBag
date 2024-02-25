@@ -12,9 +12,7 @@ class ProfileImageViewController: UIViewController {
     @IBOutlet var selectImage: UIImageView!
     @IBOutlet var imageList: [ProfileButton]!
     
-    var selectIndex = 0
-    
-    var type: ProfileSettingType = .new
+    let viewModel = ProfileModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,19 +32,22 @@ class ProfileImageViewController: UIViewController {
     @IBAction func imageTapped(_ sender: UIButton) {
 
         let index = sender.tag
-        let selectButton = imageList[selectIndex]
+        let selectButton = imageList[self.viewModel.selectImage.value]
         
         sender.isSelected.toggle()
         selectButton.isSelected.toggle()
+    
+        selectButton.configureView(image: "profile\(self.viewModel.selectImage.value + 1)", isSelected: selectButton.isSelected)
         
-        selectButton.configureView(image: "profile\(selectIndex + 1)", isSelected: selectButton.isSelected)
+        self.viewModel.selectImage.value = index
         
-        imageList[index].configureView(image: "profile\(index + 1)", isSelected: sender.isSelected)
-        
-        selectIndex = index
-        UserDefaultManager.shared.profileIndex = selectIndex
-        
-        selectImage.image = UIImage(named: "profile\(selectIndex + 1)")
+        viewModel.selectImage.bind { value in
+            print("으아아아아아아ㅏ앙")
+            self.imageList[value].configureView(image: "profile\(value + 1)", isSelected: sender.isSelected)
+            UserDefaultManager.shared.profileIndex = value
+            
+            self.selectImage.image = UIImage(named: "profile\(value + 1)")
+        }
 
     }
     
@@ -54,16 +55,16 @@ class ProfileImageViewController: UIViewController {
 
 extension ProfileImageViewController: ViewProtocol {
     func configureView() {
-        navigationItem.title = type == .new ? "프로필 설정" : "프로필 수정"
+        navigationItem.title = self.viewModel.editType.value == .new ? "프로필 설정" : "프로필 수정"
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
 
-        selectImage.image = UIImage(named: "profile\(selectIndex + 1)")
+        selectImage.image = UIImage(named: "profile\(self.viewModel.selectImage.value + 1)")
         
         for index in 0...imageList.count - 1 {
             
             imageList[index].tag = index
             
-            if index == selectIndex {
+            if index == self.viewModel.selectImage.value {
                 imageList[index].isSelected = true
 
                 imageList[index].configureView(image: "profile\(index + 1)", isSelected: true)

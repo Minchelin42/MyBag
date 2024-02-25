@@ -11,15 +11,11 @@ class SettingViewController: UIViewController {
 
     @IBOutlet var settingTableView: UITableView!
     
-    var profileImg = "profile\(UserDefaultManager.shared.profileIndex + 1)"
-    var likeCount = UserDefaultManager.shared.likeItems.count.prettyNumber
-    var nickName = UserDefaultManager.shared.nickName
-    
-    let settingList = ["공지사항", "자주 묻는 질문", "1:1 문의", "알림 설정","처음부터 시작하기"]
-    
+    let viewModel = ProfileModel()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print(#function)
         setBackgroundColor()
         configureView()
         configureTableView()
@@ -27,10 +23,9 @@ class SettingViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         print(#function)
-        
-        profileImg = "profile\(UserDefaultManager.shared.profileIndex + 1)"
-        nickName = UserDefaultManager.shared.nickName
-        likeCount = UserDefaultManager.shared.likeItems.count.prettyNumber
+        viewModel.selectImage.value = UserDefaultManager.shared.profileIndex
+        viewModel.inputName.value = UserDefaultManager.shared.nickName
+        viewModel.userLike.value = UserDefaultManager.shared.likeItems.count.prettyNumber
         settingTableView.reloadData()
     }
 
@@ -77,7 +72,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         if section == 0 {
             return 1
         } else {
-            return settingList.count
+            return self.viewModel.settingList.count
         }
     }
     
@@ -85,17 +80,24 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: ProfileTableViewCell.identifier, for: indexPath) as! ProfileTableViewCell
 
-            cell.profileImage.image = UIImage(named: "\(profileImg)")
+            viewModel.selectImage.bind { value in
+                cell.profileImage.image = UIImage(named: "profile\(value + 1)")
+            }
             
-            cell.nameLabel.text = "\(nickName)"
-            cell.countLabel.text = "\(likeCount)개의 상품"
-            cell.likeLabel.text = "을 좋아하고 있어요!"
+            viewModel.inputName.bind { value in
+                cell.nameLabel.text = "\(value)"
+            }
+
+            viewModel.userLike.bind { value in
+                cell.countLabel.text = "\(value)개의 상품"
+                cell.likeLabel.text = "을 좋아하고 있어요!"
+            }
 
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: SettingTableViewCell.identifier, for: indexPath) as! SettingTableViewCell
             
-            cell.settingLabel.text = "\(settingList[indexPath.row])"
+            cell.settingLabel.text = "\(viewModel.settingList[indexPath.row])"
 
             return cell
         }
@@ -107,12 +109,12 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
             let sb = UIStoryboard(name: "ProfileName", bundle: nil)
             let vc = sb.instantiateViewController(withIdentifier: ProfileNameViewController.identifier) as! ProfileNameViewController
             
-            vc.type = .edit
+            vc.viewModel.editType.value = .edit
             navigationController?.pushViewController(vc, animated: true)
             
         }
 
-        if settingList[indexPath.row] == "처음부터 시작하기" {
+        if self.viewModel.settingList[indexPath.row] == "처음부터 시작하기" {
 
             let alert = UIAlertController(title: "처음부터 시작하기", message: "데이터를 모두 초기화하시겠습니까?", preferredStyle: .alert)
 
