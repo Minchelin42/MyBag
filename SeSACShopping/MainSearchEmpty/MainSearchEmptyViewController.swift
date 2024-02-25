@@ -26,7 +26,6 @@ class MainSearchEmptyViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         changeMainSearchView()
-        print(UserDefaultManager.wishList)
     }
     
     func changeMainSearchView() {

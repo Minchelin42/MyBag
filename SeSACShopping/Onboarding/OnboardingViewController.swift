@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class OnboardingViewController: UIViewController {
 
@@ -13,12 +14,17 @@ class OnboardingViewController: UIViewController {
     @IBOutlet var onboardingImage: UIImageView!
     @IBOutlet var startButton: UIButton!
     
+    let realm = try! Realm()
+    var wishList: Results<WishListTable>!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print(#function)
         
         setBackgroundColor()
         configureView()
+        
+        wishList = realm.objects(WishListTable.self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,7 +46,13 @@ class OnboardingViewController: UIViewController {
         UserDefaultManager.shared.nickName = ""
         UserDefaultManager.shared.searchItems.removeAll()
         UserDefaultManager.shared.likeItems.removeAll()
-        UserDefaultManager.wishList?.removeAll()
+        do {
+            try realm.write {
+                realm.delete(self.wishList)
+            }
+        } catch {
+            print(error)
+        }
         UserDefaultManager.shared.newMember = true
     }
     

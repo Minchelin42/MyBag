@@ -7,6 +7,7 @@
 
 import UIKit
 import WebKit
+import RealmSwift
 
 class SearchDetailViewController: UIViewController {
 
@@ -17,11 +18,18 @@ class SearchDetailViewController: UIViewController {
     var productName = ""
     var productItem: Item = Item(title: "", link: "", image: "", lprice: "", mallName: "", productId: "")
     
+    let realm = try! Realm()
+    var wishList: Results<WishListTable>!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setBackgroundColor()
         configureView()
+        
+        wishList = realm.objects(WishListTable.self)
+        
+        print(realm.configuration.fileURL)
 
         let leftButton = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .plain, target: self, action: #selector(leftBarButtonItemClicked))
         leftButton.tintColor = .white
@@ -69,12 +77,25 @@ class SearchDetailViewController: UIViewController {
         if !hasLike {
             UserDefaultManager.shared.likeItems.append(productId)
 
-            UserDefaultManager.wishList?.append(productItem)
+            let data = WishListTable(title: productItem.title, link: productItem.link, image: productItem.image, lprice: productItem.lprice, mallName: productItem.mallName, productId: productItem.productId)
+            
+            try! realm.write {
+                realm.add(data)
+                print("Realm Create")
+            }
 
         } else {
             if let index = UserDefaultManager.shared.likeItems.firstIndex(where: { $0 as! String == productId }) {
                 UserDefaultManager.shared.likeItems.remove(at: index)
-                UserDefaultManager.wishList?.remove(at: index)
+                
+                do {
+                    try realm.write {
+                        realm.delete(self.wishList[index])
+                    }
+                } catch {
+                    print(error)
+                }
+
             }
         }
         

@@ -6,6 +6,7 @@
 
 import UIKit
 import Toast
+import RealmSwift
 
 class WishListViewController: UIViewController {
     
@@ -15,7 +16,8 @@ class WishListViewController: UIViewController {
     
     @IBOutlet var wishCollectionView: UICollectionView!
     
-    var list = UserDefaultManager.wishList ?? []
+    let realm = try! Realm()
+    var wishList: Results<WishListTable>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,13 +38,15 @@ class WishListViewController: UIViewController {
         clearButton.titleLabel?.font = .systemFont(ofSize: 15, weight: .semibold)
         clearButton.addTarget(self, action: #selector(clearButtonTapped), for: .touchUpInside)
         
+        wishList = realm.objects(WishListTable.self)
+        
+        print(realm.configuration.fileURL)
         
         configureCollectionView()
         setLayout()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        list = UserDefaultManager.wishList!
         likeCountLabel.text = "\(UserDefaultManager.shared.likeItems.count)"
         wishCollectionView.reloadData()
     }
@@ -55,9 +59,11 @@ class WishListViewController: UIViewController {
         let checkButton = UIAlertAction(title: "삭제", style: .destructive) { action in
                 
             UserDefaultManager.shared.likeItems.removeAll()
-            UserDefaultManager.wishList?.removeAll()
             
-            self.list = UserDefaultManager.wishList!
+            try! self.realm.write {
+                self.realm.delete(self.wishList)
+            }
+            
             self.likeCountLabel.text = "\(UserDefaultManager.shared.likeItems.count)"
             self.wishCollectionView.reloadData()
             
@@ -108,30 +114,30 @@ extension WishListViewController {
 }
 extension WishListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return list.count //나중에 wishItem.count로 바꾸기
+        return wishList.count //나중에 wishItem.count로 바꾸기
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ResultCollectionViewCell.identifier, for: indexPath) as! ResultCollectionViewCell
         
+        let item = wishList[indexPath.row]
+        
         cell.backgroundColor = .clear
         
-        cell.resultImage.kf.setImage(with: URL(string: list[indexPath.row].image))
+        cell.resultImage.kf.setImage(with: URL(string: item.image))
         
         cell.heartButton.tag = indexPath.row
-        
-        let like = UserDefaultManager.shared.likeItems
 
         cell.heartButton.configureView(isSelected: true)
         
-        cell.companyLabel.text = "\(list[indexPath.row].mallName)"
+        cell.companyLabel.text = "\(item.mallName)"
         
-        var title = list[indexPath.row].title.replacingOccurrences(of: "<b>", with: "")
+        var title = item.title.replacingOccurrences(of: "<b>", with: "")
         title = title.replacingOccurrences(of: "</b>", with: "")
         
         cell.productLabel.text = "\(title)"
         
-        let price = (Int(list[indexPath.row].lprice)?.prettyNumber)!
+        let price = (Int(item.lprice)?.prettyNumber)!
         
         cell.priceLabel.text = "\(price) 원"
         
@@ -143,19 +149,17 @@ extension WishListViewController: UICollectionViewDelegate, UICollectionViewData
     @objc func heartButtonTapped(sender: UIButton) {
         print(#function)
         print(sender.tag)
-        
-        print("============================")
-        print(UserDefaultManager.shared.likeItems)
-        print(UserDefaultManager.wishList!)
-        
-        UserDefaultManager.shared.likeItems.remove(at: sender.tag)
-        UserDefaultManager.wishList?.remove(at: sender.tag)
-        
-        print("=========$$$$$$$$$$=========")
-        print(UserDefaultManager.shared.likeItems)
-        print(UserDefaultManager.wishList!)
 
-        list = UserDefaultManager.wishList!
+        UserDefaultManager.shared.likeItems.remove(at: sender.tag)
+        
+        do {
+            try realm.write {
+                realm.delete(self.wishList[sender.tag])
+            }
+        } catch {
+            print(error)
+        }
+
         likeCountLabel.text = "\(UserDefaultManager.shared.likeItems.count)"
         wishCollectionView.reloadData()
     }
@@ -164,11 +168,15 @@ extension WishListViewController: UICollectionViewDelegate, UICollectionViewData
         let sb = UIStoryboard(name: "SearchDetail", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "SearchDetailViewController") as! SearchDetailViewController
         
-        vc.urlString = "https://msearch.shopping.naver.com/product/\(list[indexPath.row].productId)"
-        vc.productId = list[indexPath.row].productId
-        vc.productItem = list[indexPath.row]
+        let item = wishList[indexPath.row]
         
-        var title = list[indexPath.row].title.replacingOccurrences(of: "<b>", with: "")
+        let productItem = Item(title: item.title, link: item.link, image: item.image, lprice: item.lprice, mallName: item.mallName, productId: item.productId)
+        
+        vc.urlString = "https://msearch.shopping.naver.com/product/\(item.productId)"
+        vc.productId = item.productId
+        vc.productItem = productItem
+        
+        var title = item.title.replacingOccurrences(of: "<b>", with: "")
         title = title.replacingOccurrences(of: "</b>", with: "")
         
         vc.productName = title

@@ -32,6 +32,9 @@
 		39375C412B5E6D260053AEE6 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39375C402B5E6D260053AEE6 /* Protocol.swift */; };
 		39A89FEA2B8B916300FAF370 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A89FE92B8B916300FAF370 /* Observable.swift */; };
 		39A89FEC2B8B91E900FAF370 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A89FEB2B8B91E900FAF370 /* ProfileModel.swift */; };
+		39A89FEF2B8BC63200FAF370 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 39A89FEE2B8BC63200FAF370 /* Realm */; };
+		39A89FF12B8BC63200FAF370 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 39A89FF02B8BC63200FAF370 /* RealmSwift */; };
+		39A89FF42B8BC64E00FAF370 /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A89FF32B8BC64E00FAF370 /* RealmModel.swift */; };
 		39ADA2152B59855800F7D28A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39ADA2142B59855800F7D28A /* AppDelegate.swift */; };
 		39ADA2172B59855800F7D28A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39ADA2162B59855800F7D28A /* SceneDelegate.swift */; };
 		39ADA2192B59855800F7D28A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39ADA2182B59855800F7D28A /* ViewController.swift */; };
@@ -91,6 +94,7 @@
 		39375C402B5E6D260053AEE6 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
 		39A89FE92B8B916300FAF370 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		39A89FEB2B8B91E900FAF370 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
+		39A89FF32B8BC64E00FAF370 /* RealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
 		39ADA2112B59855800F7D28A /* SeSACShopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSACShopping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39ADA2142B59855800F7D28A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39ADA2162B59855800F7D28A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -126,7 +130,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39A89FEF2B8BC63200FAF370 /* Realm in Frameworks */,
 				39EA1BBD2B67F7390098B39E /* SnapKit-Dynamic in Frameworks */,
+				39A89FF12B8BC63200FAF370 /* RealmSwift in Frameworks */,
 				39C3402E2B5F3688002FD7D4 /* Toast in Frameworks */,
 				39EA1BBB2B67F7390098B39E /* SnapKit in Frameworks */,
 				39F696892B5D0A4F0076305A /* Kingfisher in Frameworks */,
@@ -137,6 +143,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		39A89FF22B8BC63B00FAF370 /* RealmModel */ = {
+			isa = PBXGroup;
+			children = (
+				39A89FF32B8BC64E00FAF370 /* RealmModel.swift */,
+			);
+			path = RealmModel;
+			sourceTree = "<group>";
+		};
 		39ADA2082B59855800F7D28A = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +171,7 @@
 		39ADA2132B59855800F7D28A /* SeSACShopping */ = {
 			isa = PBXGroup;
 			children = (
+				39A89FF22B8BC63B00FAF370 /* RealmModel */,
 				39F6968A2B5D6D830076305A /* MainTabBarController.swift */,
 				39EA1BA72B67D4F00098B39E /* CustomView */,
 				39ADA22A2B59875000F7D28A /* Onboarding */,
@@ -322,6 +337,8 @@
 				39C3402D2B5F3688002FD7D4 /* Toast */,
 				39EA1BBA2B67F7390098B39E /* SnapKit */,
 				39EA1BBC2B67F7390098B39E /* SnapKit-Dynamic */,
+				39A89FEE2B8BC63200FAF370 /* Realm */,
+				39A89FF02B8BC63200FAF370 /* RealmSwift */,
 			);
 			productName = SeSACShopping;
 			productReference = 39ADA2112B59855800F7D28A /* SeSACShopping.app */;
@@ -356,6 +373,7 @@
 				39F696872B5D0A4F0076305A /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				39C3402C2B5F3688002FD7D4 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				39EA1BB92B67F7390098B39E /* XCRemoteSwiftPackageReference "SnapKit" */,
+				39A89FED2B8BC63200FAF370 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 39ADA2122B59855800F7D28A /* Products */;
 			projectDirPath = "";
@@ -406,6 +424,7 @@
 				3905F5442B5AA7C800B910DD /* SettingViewController.swift in Sources */,
 				39F6968B2B5D6D830076305A /* MainTabBarController.swift in Sources */,
 				39F696832B5CF6090076305A /* Result.swift in Sources */,
+				39A89FF42B8BC64E00FAF370 /* RealmModel.swift in Sources */,
 				3905F54F2B5AB83A00B910DD /* SettingTableViewCell.swift in Sources */,
 				39A89FEC2B8B91E900FAF370 /* ProfileModel.swift in Sources */,
 				3905F5472B5AB01B00B910DD /* SearchLogTableViewCell.swift in Sources */,
@@ -664,6 +683,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		39A89FED2B8BC63200FAF370 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		39C3402C2B5F3688002FD7D4 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
@@ -699,6 +726,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		39A89FEE2B8BC63200FAF370 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 39A89FED2B8BC63200FAF370 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		39A89FF02B8BC63200FAF370 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 39A89FED2B8BC63200FAF370 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
 		39C3402D2B5F3688002FD7D4 /* Toast */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 39C3402C2B5F3688002FD7D4 /* XCRemoteSwiftPackageReference "Toast-Swift" */;

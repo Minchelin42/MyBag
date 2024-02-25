@@ -8,6 +8,7 @@
 import UIKit
 import Alamofire
 import Kingfisher
+import RealmSwift
 
 class SearchResultViewController: UIViewController {
 
@@ -27,6 +28,9 @@ class SearchResultViewController: UIViewController {
     let sortOption = ["sim", "date", "asc", "dsc"]
     let buttonTitle = ["정확도","날짜순","가격 낮은 순","가격 높은 순"]
     
+    let realm = try! Realm()
+    var wishList: Results<WishListTable>!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,6 +38,10 @@ class SearchResultViewController: UIViewController {
         configureView()
         configureCollectionView()
         setLayout()
+        
+        wishList = realm.objects(WishListTable.self)
+        
+        print(realm.configuration.fileURL)
         
         let button = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .plain, target: self, action: #selector(leftBarButtonItemClicked))
         button.tintColor = .white
@@ -50,7 +58,7 @@ class SearchResultViewController: UIViewController {
 
         self.start = 1
         SearchAPIManager.callRequest(query: searchItem, sort: sortOption[nowSortIndex], start: start) { result, error in
-            if error == nil { //movie에 데이터가 들어간 것
+            if error == nil {
                 guard let result = result else { return }
 
                 if self.start == 1 {
@@ -80,7 +88,7 @@ class SearchResultViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         SearchAPIManager.callRequest(query: searchItem, sort: sortOption[nowSortIndex], start: start) { result, error in
-            if error == nil { //movie에 데이터가 들어간 것
+            if error == nil {
                 guard let result = result else { return }
 
                 if self.start == 1 {
@@ -255,21 +263,32 @@ extension SearchResultViewController: UICollectionViewDelegate, UICollectionView
             //wishItems 추가하는 부분
             let item: Item = list.items[sender.tag]
 
-            UserDefaultManager.wishList?.append(item)
-//            print(UserDefaultManager.wishList!)
-//            let savedWishItems = UserDefaultManager.wishList
-//            print(savedWishItems)
+            let data = WishListTable(title: item.title, link: item.link, image: item.image, lprice: item.lprice, mallName: item.mallName, productId: item.productId)
+            
+            
+            try! realm.write {
+                realm.add(data)
+                print("Realm Create")
+            }
 
         } else {
             
             if let index = UserDefaultManager.shared.likeItems.firstIndex(where: { $0 as! String == list.items[sender.tag].productId }) {
                 UserDefaultManager.shared.likeItems.remove(at: index)
-                UserDefaultManager.wishList?.remove(at: index)
+                
+                do {
+                    try realm.write {
+                        realm.delete(self.wishList[index])
+                    }
+                } catch {
+                    print(error)
+                }
+                
             }
 
             print(UserDefaultManager.shared.likeItems)
-            let savedWishItems = UserDefaultManager.wishList
-            print(savedWishItems!)
+
+
         }
         
         resultCollectionView.reloadData()
