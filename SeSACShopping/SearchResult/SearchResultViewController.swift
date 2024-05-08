@@ -29,21 +29,9 @@ class SearchResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.backgroundColor = .backgroudnColor
-        
-        resultTopView.backgroundColor = .clear
-        resultCollectionView.backgroundColor = .clear
-        navigationItem.title = "\(searchItem)"
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
-        
-        numberOfResultLabel.text = "\(self.list.total.prettyNumber)개의 검색 결과"
-        numberOfResultLabel.font = .systemFont(ofSize: 14, weight: .semibold)
-        numberOfResultLabel.textColor = .pointColor
 
-        sortOptionButtonDesign()
-        sortOptionList[nowSortIndex].optionButtonStyle(isSelected: true)
-
+        setBackgroundColor()
+        configureView()
         configureCollectionView()
         setLayout()
         
@@ -84,37 +72,23 @@ class SearchResultViewController: UIViewController {
     func callRequest(search: String, sort: String){
         print(#function)
         //한글일 경우 인코딩 처리
-        let query = search.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         let display = 30
         
-        let url = "https://openapi.naver.com/v1/search/shop.json?query=\(search)&display=\(display)&sort=\(sort)&start=\(start)"
-        
-        let headers: HTTPHeaders = [
-            "X-Naver-Client-Id": APIKey.clientID,
-            "X-Naver-Client-Secret": APIKey.clientSecret
-        ]
-        
-        AF.request(url, method: .get, headers: headers).responseDecodable(of: Result.self) { response in
+        Task {
+            let result = try await Network.shared.callRequestAsyncAwait(query: search, display: display, sort: sort, start: start)
             
-            switch response.result {
-            case .success(let success):
-                
-                if self.start == 1 {
-                    self.list = success
-                } else {
-                    self.list.items.append(contentsOf: success.items)
-                }
-                
-                self.numberOfResultLabel.text = "\(self.list.total.prettyNumber)개의 검색 결과"
-                
-                self.resultCollectionView.reloadData()
-                
-                if self.start == 1 && !self.list.items.isEmpty{
-                    self.resultCollectionView.scrollToItem(at: [0, 0], at: .bottom, animated: false)
-                }
-                
-            case .failure(let failure):
-                print(failure)
+            if self.start == 1 {
+                self.list = result
+            } else {
+                self.list.items.append(contentsOf: result.items)
+            }
+            
+            self.numberOfResultLabel.text = "\(self.list.total.prettyNumber)개의 검색 결과"
+            
+            self.resultCollectionView.reloadData()
+            
+            if self.start == 1 && !self.list.items.isEmpty{
+                self.resultCollectionView.scrollToItem(at: [0, 0], at: .bottom, animated: false)
             }
             
         }
@@ -135,6 +109,22 @@ extension SearchResultViewController: UICollectionViewDataSourcePrefetching {
                 }
             }
         }
+    }
+}
+
+extension SearchResultViewController: ViewProtocol {
+    func configureView() {
+        resultTopView.backgroundColor = .clear
+        resultCollectionView.backgroundColor = .clear
+        navigationItem.title = "\(searchItem)"
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        
+        numberOfResultLabel.text = "\(self.list.total.prettyNumber)개의 검색 결과"
+        numberOfResultLabel.font = .systemFont(ofSize: 14, weight: .semibold)
+        numberOfResultLabel.textColor = .pointColor
+        
+        sortOptionButtonDesign()
+        sortOptionList[nowSortIndex].optionButtonStyle(isSelected: true)
     }
 }
 
