@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Alamofire
 
 class MainSearchEmptyViewController: UIViewController {
     
@@ -19,26 +18,16 @@ class MainSearchEmptyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .backgroudnColor
-        
-        navigationItem.title = "\(nickName)님의 새싹쇼핑"
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
-
-        
-        searchBar.blackSearchBarStyle()
-
-        emptyImage.image = UIImage(named: "empty")
-        
-        emptyLabel.text = "최근 검색어가 없어요"
-        emptyLabel.font = .boldSystemFont(ofSize: 17)
-        emptyLabel.textColor = .textColor
-        
-        searchBar.delegate = self
+        setBackgroundColor()
+        configureView()
 
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
+        changeMainSearchView()
+    }
+    
+    func changeMainSearchView() {
         navigationItem.title = "\(UserDefaultManager.shared.nickName)님의 새싹쇼핑"
         
         if !UserDefaultManager.shared.searchItems.isEmpty {
@@ -55,6 +44,23 @@ class MainSearchEmptyViewController: UIViewController {
         }
     }
 
+}
+
+extension MainSearchEmptyViewController: ViewProtocol {
+    func configureView() {
+        navigationItem.title = "\(nickName)님의 새싹쇼핑"
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+
+        searchBar.blackSearchBarStyle()
+
+        emptyImage.image = UIImage(named: "empty")
+        
+        emptyLabel.text = "최근 검색어가 없어요"
+        emptyLabel.font = .boldSystemFont(ofSize: 17)
+        emptyLabel.textColor = .textColor
+        
+        searchBar.delegate = self
+    }
 }
 
 extension MainSearchEmptyViewController: UISearchBarDelegate {

@@ -28,6 +28,8 @@
 		3905F54F2B5AB83A00B910DD /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3905F54D2B5AB83A00B910DD /* SettingTableViewCell.swift */; };
 		3905F5502B5AB83A00B910DD /* SettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3905F54E2B5AB83A00B910DD /* SettingTableViewCell.xib */; };
 		3905F5522B5ABA4B00B910DD /* ProfileImage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3905F5512B5ABA4B00B910DD /* ProfileImage.storyboard */; };
+		39375C412B5E6D260053AEE6 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39375C402B5E6D260053AEE6 /* Protocol.swift */; };
+		397908952BEB588C002F111B /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397908942BEB588C002F111B /* Network.swift */; };
 		39ADA2152B59855800F7D28A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39ADA2142B59855800F7D28A /* AppDelegate.swift */; };
 		39ADA2172B59855800F7D28A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39ADA2162B59855800F7D28A /* SceneDelegate.swift */; };
 		39ADA2192B59855800F7D28A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39ADA2182B59855800F7D28A /* ViewController.swift */; };
@@ -69,6 +71,8 @@
 		3905F54D2B5AB83A00B910DD /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		3905F54E2B5AB83A00B910DD /* SettingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingTableViewCell.xib; sourceTree = "<group>"; };
 		3905F5512B5ABA4B00B910DD /* ProfileImage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileImage.storyboard; sourceTree = "<group>"; };
+		39375C402B5E6D260053AEE6 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
+		397908942BEB588C002F111B /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		39ADA2112B59855800F7D28A /* SeSACShopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSACShopping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39ADA2142B59855800F7D28A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39ADA2162B59855800F7D28A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -141,6 +145,8 @@
 				39F6967E2B5C07200076305A /* UserDefaultManager.swift */,
 				39F696802B5CF30D0076305A /* APIKey.swift */,
 				39F696822B5CF6090076305A /* Result.swift */,
+				39375C402B5E6D260053AEE6 /* Protocol.swift */,
+				397908942BEB588C002F111B /* Network.swift */,
 			);
 			path = SeSACShopping;
 			sourceTree = "<group>";
@@ -333,7 +339,9 @@
 				3905F5402B5AA79F00B910DD /* SearchDetailViewController.swift in Sources */,
 				39ADA2172B59855800F7D28A /* SceneDelegate.swift in Sources */,
 				3905F5282B5AA35600B910DD /* OnboardingViewController.swift in Sources */,
+				397908952BEB588C002F111B /* Network.swift in Sources */,
 				3905F54B2B5AB39B00B910DD /* ResultCollectionViewCell.swift in Sources */,
+				39375C412B5E6D260053AEE6 /* Protocol.swift in Sources */,
 				39F6967F2B5C07200076305A /* UserDefaultManager.swift in Sources */,
 				39F696812B5CF30D0076305A /* APIKey.swift in Sources */,
 				3905F5382B5AA74C00B910DD /* MainSearchEmptyViewController.swift in Sources */,
@@ -490,6 +498,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SeSACShopping/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "민지은";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -521,6 +530,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SeSACShopping/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "민지은";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

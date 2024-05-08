@@ -67,7 +67,5 @@ class UserDefaultManager {
             ud.set(newValue, forKey: UDKey.likeItems.rawValue)
         }
     }
-    
-    
-    
+
 }

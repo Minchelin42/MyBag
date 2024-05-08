@@ -20,13 +20,8 @@ class SettingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .backgroudnColor
-        settingTableView.backgroundColor = .clear
-        
-        navigationItem.title = "설정"
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
-
-        
+        setBackgroundColor()
+        configureView()
         configureTableView()
 
     }
@@ -50,10 +45,18 @@ extension SettingViewController {
         let xib = UINib(nibName: ProfileTableViewCell.identifier, bundle: nil)
         settingTableView.register(xib, forCellReuseIdentifier: ProfileTableViewCell.identifier)
 
-        
         let xib2 = UINib(nibName: SettingTableViewCell.identifier, bundle: nil)
         settingTableView.register(xib2, forCellReuseIdentifier: SettingTableViewCell.identifier)
 
+    }
+}
+
+extension SettingViewController: ViewProtocol {
+    func configureView() {
+        settingTableView.backgroundColor = .clear
+        
+        navigationItem.title = "설정"
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
     }
 }
 
@@ -135,9 +138,6 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
             alert.addAction(checkButton)
             
             present(alert, animated: true)
- 
         }
     }
-    
-    
 }

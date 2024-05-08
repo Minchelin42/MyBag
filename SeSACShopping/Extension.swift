@@ -24,6 +24,17 @@ extension UIColor {
     static let darkGrayColor = UIColor(red: 0.11, green: 0.11, blue: 0.123, alpha: 1)
 }
 
+extension UITextField {
+    func nickNameInputTF() {
+        self.backgroundColor = .backgroudnColor
+        self.borderStyle = .none
+        self.textColor = .textColor
+        self.font = .systemFont(ofSize: 14)
+        self.text = UserDefaultManager.shared.nickName
+        self.attributedPlaceholder = NSAttributedString(string: "닉네임을 입력해주세요 :)", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
+    }
+}
+
 extension UIButton {
     
     static var isSelected: Bool = false
@@ -73,10 +84,13 @@ extension UIButton {
 extension UIImageView {
     func profileImageStyle(image: String, isSelected: Bool){
         self.image = UIImage(named: image)
-        self.clipsToBounds = true
-        self.layer.cornerRadius = self.frame.width / 2
         self.layer.borderWidth = 5
         self.layer.borderColor = UIColor.pointColor.cgColor
+        self.contentMode = .scaleAspectFill
+        self.clipsToBounds = true
+        DispatchQueue.main.async {
+            self.layer.cornerRadius = self.frame.width / 2
+        }
     }
 }
 
@@ -87,10 +101,6 @@ extension UISearchBar {
         self.searchTextField.backgroundColor = .darkGrayColor
         self.searchTextField.attributedPlaceholder = NSAttributedString(string: "브랜드, 상품, 프로필, 태그 등", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
     }
-}
-
-protocol ViewProtocol {
-    func configureView()
 }
 
 protocol ReusableProtocol {
@@ -112,6 +122,12 @@ extension UICollectionViewCell {
 extension UIViewController: ReusableProtocol {
     static var identifier: String {
         return String(describing: self)
+    }
+}
+
+extension UIViewController {
+    func setBackgroundColor() {
+        view.backgroundColor = .backgroudnColor
     }
 }
 

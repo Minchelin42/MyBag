@@ -31,6 +31,9 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bYX-f8-ouz">
                                                 <rect key="frame" x="0.0" y="0.0" width="81" height="81"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="bYX-f8-ouz" secondAttribute="height" multiplier="1:1" id="HLk-kc-fsQ"/>
+                                                </constraints>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <connections>
                                                     <action selector="imageTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="MOZ-WV-bwp"/>
@@ -64,6 +67,9 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wI6-YO-0T6">
                                                 <rect key="frame" x="0.0" y="0.0" width="81" height="81"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="wI6-YO-0T6" secondAttribute="height" multiplier="1:1" id="joH-7v-vnS"/>
+                                                </constraints>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <connections>
                                                     <action selector="imageTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="EOx-bh-8i8"/>
@@ -97,6 +103,9 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="maJ-RQ-JoF">
                                                 <rect key="frame" x="0.0" y="0.0" width="81" height="80.666666666666671"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="maJ-RQ-JoF" secondAttribute="height" id="N0I-jM-A3H"/>
+                                                </constraints>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <connections>
                                                     <action selector="imageTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="KEY-f9-q0H"/>

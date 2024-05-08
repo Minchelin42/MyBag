@@ -23,27 +23,9 @@ class MainSearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .backgroudnColor
-        
-        navigationItem.title = "\(nickName)님의 새싹쇼핑"
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
-
-        searchBar.blackSearchBarStyle()
-        
-        searchListTopView.backgroundColor = .backgroudnColor
-        
-        leftLabel.text = "최근 검색"
-        leftLabel.font = .boldSystemFont(ofSize: 15)
-        leftLabel.textColor = .textColor
-        
-        listClearButton.setTitle("모두 지우기", for: .normal)
-        listClearButton.setTitleColor(.pointColor, for: .normal)
-        listClearButton.titleLabel?.font = .boldSystemFont(ofSize: 15)
-        
-        listTableView.backgroundColor = .clear
-        
+        setBackgroundColor()
+        configureView()
         configureTableView()
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -77,8 +59,27 @@ extension MainSearchViewController {
         
         let xib = UINib(nibName: SearchLogTableViewCell.identifier, bundle: nil)
         listTableView.register(xib, forCellReuseIdentifier: SearchLogTableViewCell.identifier)
+    }
+}
+
+extension MainSearchViewController: ViewProtocol {
+    func configureView() {
+        navigationItem.title = "\(nickName)님의 새싹쇼핑"
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+
+        searchBar.blackSearchBarStyle()
         
-//        listTableView.allowsSelection = false
+        searchListTopView.backgroundColor = .backgroudnColor
+        
+        leftLabel.text = "최근 검색"
+        leftLabel.font = .boldSystemFont(ofSize: 15)
+        leftLabel.textColor = .textColor
+        
+        listClearButton.setTitle("모두 지우기", for: .normal)
+        listClearButton.setTitleColor(.pointColor, for: .normal)
+        listClearButton.titleLabel?.font = .boldSystemFont(ofSize: 15)
+        
+        listTableView.backgroundColor = .clear
     }
 }
 
@@ -147,7 +148,6 @@ extension MainSearchViewController: UITableViewDelegate, UITableViewDataSource {
         } else {
             listTableView.reloadData()
         }
-        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

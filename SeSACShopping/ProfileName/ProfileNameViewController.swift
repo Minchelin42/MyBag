@@ -41,37 +41,8 @@ class ProfileNameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .backgroudnColor
-        let image = "profile\(UserDefaultManager.shared.profileIndex + 1)"
-        profileView.backgroundColor = .clear
-        
-        navigationItem.title = type == .new ? "프로필 설정" : "프로필 수정"
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
-
-        profileButton.profileButtonStyle(image: image, isSelected: true)
-        cameraImage.image = UIImage(named: "camera")
-        
-        inputTextField.backgroundColor = .backgroudnColor
-        inputTextField.borderStyle = .none
-        inputTextField.textColor = .textColor
-        inputTextField.font = .systemFont(ofSize: 14)
-        inputTextField.text = UserDefaultManager.shared.nickName
-        inputTextField.attributedPlaceholder = NSAttributedString(string: "닉네임을 입력해주세요 :)", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
-        
-        underLine.backgroundColor = .white
-        
-        checkName()
-        checkLabel.textColor = .pointColor
-        checkLabel.font = .systemFont(ofSize: 12)
-        
-        completeButton.pointButtonStyle(title: "완료")
-        completeButton.addTarget(self, action: #selector(completeButtonTapped), for: .touchUpInside)
-        
-
-        let button = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .plain, target: self, action: #selector(leftBarButtonItemClicked))
-        button.tintColor = .white
-        navigationItem.leftBarButtonItem = button
-        
+        setBackgroundColor()
+        configureView()
     }
     
     @objc func completeButtonTapped() {
@@ -132,7 +103,6 @@ class ProfileNameViewController: UIViewController {
         print(#function)
   
         let image = "profile\(UserDefaultManager.shared.profileIndex + 1)"
-
         profileButton.profileButtonStyle(image: image, isSelected: true)
         
     }
@@ -152,7 +122,6 @@ class ProfileNameViewController: UIViewController {
     @IBAction func inputFinish(_ sender: UITextField) {
         print(#function)
         view.endEditing(true)
-        
         UserDefaultManager.shared.nickName = inputTextField.text!
     }
 
@@ -213,3 +182,35 @@ class ProfileNameViewController: UIViewController {
     }
     
 }
+
+extension ProfileNameViewController: ViewProtocol {
+    func configureView() {
+        
+        let image = "profile\(UserDefaultManager.shared.profileIndex + 1)"
+        profileView.backgroundColor = .clear
+        
+        navigationItem.title = type == .new ? "프로필 설정" : "프로필 수정"
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+
+        profileButton.profileButtonStyle(image: image, isSelected: true)
+        cameraImage.image = UIImage(named: "camera")
+        
+        inputTextField.nickNameInputTF()
+        
+        underLine.backgroundColor = .white
+        
+        checkName()
+        
+        checkLabel.textColor = .pointColor
+        checkLabel.font = .systemFont(ofSize: 12)
+        
+        completeButton.pointButtonStyle(title: "완료")
+        completeButton.addTarget(self, action: #selector(completeButtonTapped), for: .touchUpInside)
+        
+
+        let button = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .plain, target: self, action: #selector(leftBarButtonItemClicked))
+        button.tintColor = .white
+        navigationItem.leftBarButtonItem = button
+    }
+}
+

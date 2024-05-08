@@ -18,24 +18,13 @@ class SearchDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.backgroundColor = .backgroudnColor
-        
-        navigationItem.title = "\(productName)"
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
 
-        if let url = URL(string: urlString) {
-            
-            let request = URLRequest(url: url)
-            
-            resultView.load(request)
-        }
-        
+        setBackgroundColor()
+        configureView()
+
         let leftButton = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .plain, target: self, action: #selector(leftBarButtonItemClicked))
         leftButton.tintColor = .white
         navigationItem.leftBarButtonItem = leftButton
-        
-        
         
         let rightButton = UIBarButtonItem(image: UIImage(systemName: setLike()), style: .plain, target: self, action: #selector(rightBarButtonItemClicked))
         rightButton.tintColor = .white
@@ -82,6 +71,18 @@ class SearchDetailViewController: UIViewController {
         rightButton.tintColor = .white
         navigationItem.rightBarButtonItem = rightButton
     }
+}
 
+extension SearchDetailViewController: ViewProtocol {
+    func configureView() {
+        navigationItem.title = "\(productName)"
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
 
+        if let url = URL(string: urlString) {
+            
+            let request = URLRequest(url: url)
+            
+            resultView.load(request)
+        }
+    }
 }
